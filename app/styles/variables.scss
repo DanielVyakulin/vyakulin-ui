@@ -6,8 +6,8 @@ $ac: #00FFBF;
 $ac-hover: #30BF9A;
 $wh: #E5E5E5;
 $wh-hover: #A6A6A6;
-$bl: #1A1A1A;
-$bl-hover: #595959;
+$bl: #000000;
+$bl-hover: #404040;
 
 // Status Colors
 $error: #D92020;
@@ -39,14 +39,8 @@ $line-height-small: 1.3125rem;     // 21px
 $line-height-button: 1rem;         // 16px
 
 // Spacing
-$spacing-xs: 0.25rem;    // 4px
-$spacing-sm: 0.5rem;     // 8px
-$spacing-md: 1rem;       // 16px
-$spacing-lg: 1.5rem;     // 24px
-$spacing-xl: 2rem;       // 32px
-$spacing-2xl: 3rem;      // 48px
-$spacing-3xl: 4rem;      // 64px
-$spacing-4xl: 6rem;      // 96px
+$vem: 0.25rem;    // 4px
+$rem: 1rem;       // 16px
 
 :root {
   font-size: $font-size-paragraph;

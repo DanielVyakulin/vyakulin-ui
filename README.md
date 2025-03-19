@@ -1,69 +1,90 @@
 # Vyakulin UI
 
-UI-кит на Next.js с использованием SASS.
+Веб-приложение на Next.js с современным дизайном и адаптивной версткой.
 
-## Technologies
+## Технологии
 
-- Next.js
-- React
-- SASS
-- JavaScript
+- Next.js 15.2.3
+- React 19
+- SASS/SCSS
+- React Icons
 
-## Components
+## Структура проекта
 
-### Text
-```jsx
-<Text type="h1 | h2 | h3 | p | sm | btn">
-  children
-</Text>
+```
+vyakulin-ui/
+├── app/                    # Основные страницы и компоненты
+│   ├── docs/              # Документация
+│   ├── test/              # Тестовые страницы
+│   ├── styles/            # Стили
+│   │   ├── globals.scss   # Глобальные стили
+│   │   └── variables.scss # Переменные
+│   ├── layout.jsx         # Корневой layout
+│   └── page.jsx           # Главная страница
+├── components/            # Переиспользуемые компоненты
+│   ├── blocks.jsx        # Блочные компоненты
+│   └── components.jsx    # Атомарные компоненты
+├── public/               # Статические файлы
+└── src/                  # Исходный код
 ```
 
-### Link
-```jsx
-<Link 
-  text="h1 | h2 | h3 | p | sm | btn"
-  color="wh | wh-ac | bl | bl-ac | ac"
-  href="string"
->
-  children
-</Link>
-```
+## Стилизация
 
-### Button
-```jsx
-<Button 
-  text="h1 | h2 | h3 | p | sm | btn"
-  color="wh | wh-ac | bl | bl-ac | ac"
->
-  children
-</Button>
-```
+Проект использует SASS/SCSS с модульной системой переменных:
 
-## Color Palette
+### Основные единицы измерения
+- `$vem: 0.25rem` (4px) - базовая единица для отступов и размеров
+- `$rem: 1rem` (16px) - единица для размеров шрифтов
 
-- Accent: #00FFBF
-- Accent (hover): #30BF9A
-- White: #E5E5E5
-- White (hover): #A6A6A6
-- Black: #1A1A1A
-- Black (hover): #595959
+### Цветовая схема
+- Основные цвета: `$ac`, `$wh`, `$bl`
+- Статусные цвета: `$error`, `$warning`, `$success`, `$info`
 
-## Installation & Run
+### Типографика
+- Шрифт: Montserrat
+- Размеры: от `$font-size-small` (14px) до `$font-size-heading-1` (32px)
+- Насыщенность: от `$font-weight-light` (300) до `$font-weight-bold` (700)
+
+## Компоненты
+
+### Кнопки
+- `.btn-wh` - белая кнопка
+- `.btn-wh-ac` - белая кнопка с акцентным ховером
+- `.btn-bl` - черная кнопка
+- `.btn-bl-ac` - черная кнопка с акцентным ховером
+- `.btn-ac` - акцентная кнопка
+
+### Ссылки
+- `.link-wh` - белая ссылка
+- `.link-wh-ac` - белая ссылка с акцентным ховером
+- `.link-bl` - черная ссылка
+- `.link-bl-ac` - черная ссылка с акцентным ховером
+- `.link-ac` - акцентная ссылка
+
+### Текст
+- `.t-h1` - заголовок первого уровня
+- `.t-h2` - заголовок второго уровня
+- `.t-h3` - заголовок третьего уровня
+- `.t-p` - параграф
+- `.t-sm` - мелкий текст
+- `.t-btn` - текст кнопки
+
+## Запуск проекта
 
 ```bash
-# Install dependencies
+# Установка зависимостей
 npm install
 
-# Run in development mode
+# Запуск в режиме разработки
 npm run dev
 
-# Build the project
+# Сборка проекта
 npm run build
 
-# Run the built project
+# Запуск собранного проекта
 npm start
 ```
 
-## Testing
+## Лицензия
 
-View all components and their variations at `/test`. 
+MIT 

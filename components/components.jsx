@@ -1,7 +1,7 @@
 import React from 'react';
-import NextLink from 'next/link';
+import Link from 'next/link';
 
-const Text = ({ children, type = 'p', ...props }) => {
+const Text = ({ children, type = 'p', className, ...props }) => {
   const variants = {
     h1: 't-h1',
     h2: 't-h2',
@@ -13,7 +13,7 @@ const Text = ({ children, type = 'p', ...props }) => {
 
   return (
     <p 
-      className={variants[type]}
+      className={`${variants[type]} ${className}`}
       {...props}
     >
       {children}
@@ -21,22 +21,22 @@ const Text = ({ children, type = 'p', ...props }) => {
   );
 };
 
-const Link = ({ children, text = 'p', color = 'wh', href = '#', ...props }) => {
+const LinkV = ({ children, text = 'p', color = 'wh', href = '#', className, ...props }) => {
   return (
-    <NextLink 
+    <Link 
       href={href} 
-      className={`link-${color} t-${text}`}
+      className={`link-${color} t-${text} ${className}`}
       {...props}
     >
       {children}
-    </NextLink>
+    </Link>
   );
 };
 
-const Button = ({ children, text = 'btn', color = 'wh', ...props }) => {
+const Button = ({ children, text = 'btn', color = 'wh', className, ...props }) => {
   return (
     <div 
-      className={`btn-${color} t-${text}`}
+      className={`btn-${color} t-${text} ${className}`}
       {...props}
     >
       {children}
@@ -44,4 +44,4 @@ const Button = ({ children, text = 'btn', color = 'wh', ...props }) => {
   );
 };
 
-export { Text, Link, Button };
+export { Text, LinkV, Button };

@@ -5,6 +5,7 @@
   padding: 0;
   margin: 0;
   transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  text-decoration: none;
 }
 
 html,
@@ -31,14 +32,27 @@ body {
 // Link mixin
 @mixin link-style($color, $hover-color) {
   color: $color;
-  text-decoration: none;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: $spacing-xs;
+  gap: $vem;
+
+  svg {
+    width: 1em;
+    height: 1em;
+
+    path {
+      fill: $color;
+    }
+  }
+  
 
   &:hover {
-    color: $hover-color;
+    color: $hover-color;  
+
+    svg path {
+      fill: $hover-color;
+    }
   }
 }
 
@@ -47,16 +61,29 @@ body {
   background-color: $color;
   color: $text-color;
   cursor: pointer;
-  padding: $spacing-xs $spacing-sm;
-  border-radius: $spacing-xs;
+  padding: $vem $vem * 2;
+  border-radius: $vem;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: $spacing-xs;
+  gap: $vem;
+
+  svg {
+    width: 1em;
+    height: 1em;
+
+    path {
+      fill: $text-color;
+    }
+  }
   
   &:hover {
     background-color: $hover-color;
-    color: $hover-text-color;
+    color: $hover-text-color; 
+
+    svg path {
+      fill: $hover-text-color;
+    }
   }
 }
 
@@ -73,3 +100,36 @@ body {
 .btn-bl { @include button-style($bl, $wh, $bl-hover, $wh-hover); }
 .btn-bl-ac { @include button-style($bl, $wh, $ac, $bl); }
 .btn-ac { @include button-style($ac, $bl, $ac-hover, $bl-hover); }
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+  padding: ($vem * 6) 210px 0px;
+
+  &-container {
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: $bl;
+    outline: 1px solid $wh;
+    outline-offset: -1px;
+    padding: $vem*2 $vem*6;
+    border-radius: $vem*6;
+  }
+
+  &-nav {
+    display: flex;
+    gap: $vem * 4;
+    align-items: center;
+  }
+
+  &-logos {
+    display: flex;
+    gap: $vem * 4;
+    align-items: center;
+  }
+}
