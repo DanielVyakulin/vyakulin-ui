@@ -30,4 +30,4 @@ export function Logo() {
       Vyakulin UI
     </LinkV>
   );
-}
+} 

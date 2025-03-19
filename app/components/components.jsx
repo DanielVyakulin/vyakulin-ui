@@ -44,4 +44,4 @@ const Button = ({ children, text = 'btn', color = 'wh', className, ...props }) =
   );
 };
 
-export { Text, LinkV, Button };
+export { Text, LinkV, Button }; 
