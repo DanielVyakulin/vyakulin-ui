@@ -1,0 +1,106 @@
+@import '../styles/variables.scss';
+
+.test-page {
+  padding: 1rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-top: 6rem;
+}
+
+.test-section {
+  margin-bottom: 2rem;
+  padding: 1rem;
+  background: rgba($wh, 0.05);
+  border-radius: 0.5rem;
+  backdrop-filter: blur(10px);
+}
+
+.test-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.test-item {
+  padding: 0.75rem;
+  background: rgba($wh, 0.1);
+  border-radius: 0.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.test-variants {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.color-block {
+  width: 100%;
+  height: 60px;
+  border-radius: 0.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: $bl;
+  font-weight: $font-weight-medium;
+  text-align: center;
+  padding: 0.5rem;
+  font-size: 0.875rem;
+
+  &.ac {
+    background-color: $ac;
+  }
+
+  &.ac-hover {
+    background-color: $ac-hover;
+  }
+
+  &.wh {
+    background-color: $wh;
+  }
+
+  &.wh-hover {
+    background-color: $wh-hover;
+  }
+
+  &.bl {
+    background-color: $bl;
+    color: $wh;
+  }
+
+  &.bl-hover {
+    background-color: $bl-hover;
+    color: $wh;
+  }
+}
+
+// Адаптивность
+@media (max-width: 768px) {
+  .test-page {
+    padding: 0.5rem;
+    padding-top: 5rem;
+  }
+
+  .test-section {
+    padding: 0.75rem;
+  }
+
+  .test-grid {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+  }
+
+  .test-item {
+    padding: 0.5rem;
+  }
+
+  .test-variants {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.25rem;
+  }
+} 
