@@ -1,0 +1,24 @@
+@import '../styles/globals.scss';
+
+.test-page {
+  padding: $spacing-xl;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-xl;
+
+  &__section {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-lg;
+  }
+
+  &__title {
+    @include text-style($font-size-heading-2, $line-height-heading-2, $font-weight-bold);
+  }
+
+  &__grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: $spacing-lg;
+  }
+} 

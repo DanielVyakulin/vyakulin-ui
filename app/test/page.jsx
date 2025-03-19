@@ -1,90 +1,47 @@
-import './page.scss';
+'use client';
+
+import { Text, Link, Button } from '@/components/components';
+import './styles.scss';
 
 export default function TestPage() {
   return (
-    <main className="demo-page">
-      <h1 className="t-h1 demo-title">Типографика</h1>
-      
-      <div className="demo-section">
-        <h2 className="t-h2 demo-section-title">Заголовки</h2>
-        <div className="demo-texts">
-          <div className="demo-text-item">
-            <h1 className="t-h1">Заголовок H1</h1>
-            <span className="t-sm">$font-size-heading-1</span>
-          </div>
-          <div className="demo-text-item">
-            <h2 className="t-h2">Заголовок H2</h2>
-            <span className="t-sm">$font-size-heading-2</span>
-          </div>
-          <div className="demo-text-item">
-            <h3 className="t-h3">Заголовок H3</h3>
-            <span className="t-sm">$font-size-heading-3</span>
-          </div>
+    <div className="test-page">
+      {/* Typography */}
+      <section className="test-page__section">
+        <h2 className="test-page__title">Typography</h2>
+        <div className="test-page__grid">
+          <Text type="h1">Heading 1</Text>
+          <Text type="h2">Heading 2</Text>
+          <Text type="h3">Heading 3</Text>
+          <Text type="p">Paragraph text</Text>
+          <Text type="sm">Small text</Text>
+          <Text type="btn">Button text</Text>
         </div>
-      </div>
+      </section>
 
-      <div className="demo-section">
-        <h2 className="t-h2 demo-section-title">Текст</h2>
-        <div className="demo-texts">
-          <div className="demo-text-item">
-            <p className="t-p">Обычный текст</p>
-            <span className="t-sm">$font-size-paragraph</span>
-          </div>
-          <div className="demo-text-item">
-            <p className="t-sm">Маленький текст</p>
-            <span className="t-sm">$font-size-small</span>
-          </div>
-          <div className="demo-text-item">
-            <p className="t-btn">Текст кнопки</p>
-            <span className="t-sm">$font-size-button</span>
-          </div>
+      {/* Links */}
+      <section className="test-page__section">
+        <h2 className="test-page__title">Links</h2>
+        <div className="test-page__grid">
+          <Link text="h3" color="wh">White Link</Link>
+          <Link text="h3" color="wh-ac">White Accent Link</Link>
+          <Link text="h3" color="bl">Black Link</Link>
+          <Link text="h3" color="bl-ac">Black Accent Link</Link>
+          <Link text="h3" color="ac">Accent Link</Link>
         </div>
-      </div>
+      </section>
 
-      <div className="demo-section">
-        <h2 className="t-h2 demo-section-title">Цвета</h2>
-        <div className="demo-colors">
-          <div className="demo-colors-group">
-            <h3 className="t-h3 demo-section-title">Основные цвета</h3>
-            <div className="demo-colors-list">
-              <div className="demo-color-item">
-                <div className="demo-color-box ac"></div>
-                <span className="t-sm">$ac</span>
-              </div>
-              <div className="demo-color-item">
-                <div className="demo-color-box wh"></div>
-                <span className="t-sm">$wh</span>
-              </div>
-              <div className="demo-color-item">
-                <div className="demo-color-box bl"></div>
-                <span className="t-sm">$bl</span>
-              </div>
-            </div>
-          </div>
-
-          <div className="demo-colors-group">
-            <h3 className="t-h3 demo-section-title">Статусы</h3>
-            <div className="demo-colors-list">
-              <div className="demo-color-item">
-                <div className="demo-color-box error"></div>
-                <span className="t-sm">$error</span>
-              </div>
-              <div className="demo-color-item">
-                <div className="demo-color-box warning"></div>
-                <span className="t-sm">$warning</span>
-              </div>
-              <div className="demo-color-item">
-                <div className="demo-color-box success"></div>
-                <span className="t-sm">$success</span>
-              </div>
-              <div className="demo-color-item">
-                <div className="demo-color-box info"></div>
-                <span className="t-sm">$info</span>
-              </div>
-            </div>
-          </div>
+      {/* Buttons */}
+      <section className="test-page__section">
+        <h2 className="test-page__title">Buttons</h2>
+        <div className="test-page__grid">
+          <Button text="btn" color="wh">White Button</Button>
+          <Button text="btn" color="wh-ac">White Accent Button</Button>
+          <Button text="btn" color="bl">Black Button</Button>
+          <Button text="btn" color="bl-ac">Black Accent Button</Button>
+          <Button text="btn" color="ac">Accent Button</Button>
         </div>
-      </div>
-    </main>
+      </section>
+    </div>
   );
 } 

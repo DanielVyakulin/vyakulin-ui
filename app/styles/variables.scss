@@ -1,24 +1,19 @@
 // Typography
 $font-family: var(--font-montserrat);
 
-:root {
-  font-size: 16px;
-  font-family: $font-family;
-}
-
 // Colors
-$ac: rgb(0, 255, 191);
-$ac-hover: rgb(23, 230, 177);
-$wh: rgb(230, 230, 230);
-$wh-hover: rgb(204, 204, 204);
-$bl: rgb(26, 26, 26);
-$bl-hover: rgb(51, 51, 51);
+$ac: #00FFBF;
+$ac-hover: #30BF9A;
+$wh: #E5E5E5;
+$wh-hover: #A6A6A6;
+$bl: #1A1A1A;
+$bl-hover: #595959;
 
 // Status Colors
-$error: rgb(217, 32, 32);
-$warning: rgb(217, 148, 32);
-$success: rgb(32, 217, 100);
-$info: rgb(32, 149, 217);
+$error: #D92020;
+$warning: #D99420;
+$success: #20D964;
+$info: #207AD9;
 
 // Font Weights
 $font-weight-bold: 700;
@@ -43,29 +38,20 @@ $line-height-paragraph: 1.5rem;    // 24px
 $line-height-small: 1.3125rem;     // 21px
 $line-height-button: 1rem;         // 16px
 
-// Letter Spacing
-$letter-spacing-heading-1: -1%;  
-$letter-spacing-heading-2: -.5%; // -0.5px
-$letter-spacing-heading-3: 0;
-$letter-spacing-paragraph: 1%;   // 1px
-$letter-spacing-small: 1%;       // 1px
-$letter-spacing-button: 1.5%;     // 1.5px
+// Spacing
+$spacing-xs: 0.25rem;    // 4px
+$spacing-sm: 0.5rem;     // 8px
+$spacing-md: 1rem;       // 16px
+$spacing-lg: 1.5rem;     // 24px
+$spacing-xl: 2rem;       // 32px
+$spacing-2xl: 3rem;      // 48px
+$spacing-3xl: 4rem;      // 64px
+$spacing-4xl: 6rem;      // 96px
 
-// Padding
-$padding-xs: 0.25rem;   // 4px
-$padding-sm: 0.5rem;    // 8px
-$padding-md: 1rem;      // 16px
-$padding-lg: 1.5rem;    // 24px
-
-// Gap
-$gap-4: 0.25rem;    // 4px
-$gap-8: 0.5rem;     // 8px
-$gap-16: 1rem;      // 16px
-$gap-24: 1.5rem;    // 24px
-$gap-32: 2rem;      // 32px
-
-// Border Radius
-$radius-sm: 0.25rem;    // 4px
-$radius-md: 0.5rem;     // 8px
-$radius-lg: 1rem;       // 16px
-$radius-full: 100rem;
+:root {
+  font-size: $font-size-paragraph;
+  font-family: $font-family;
+  line-height: $line-height-paragraph;
+  background-color: $bl;
+  color: $wh;
+}
