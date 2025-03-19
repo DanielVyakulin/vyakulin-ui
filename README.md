@@ -1,41 +1,41 @@
 # Vyakulin UI
 
-Проект на Next.js с настроенной типографикой и цветовой схемой.
+Next.js project with configured typography and color scheme.
 
-## Технологии
+## Technologies
 
 - Next.js 14
 - React
 - SCSS
 - Google Fonts (Montserrat)
 
-## Структура проекта
+## Project Structure
 
 ```
 app/
 ├── styles/
-│   ├── variables.scss    # SCSS переменные
-│   └── globals.scss      # Глобальные стили
+│   ├── variables.scss    # SCSS variables
+│   └── globals.scss      # Global styles
 ├── test/
-│   ├── page.jsx         # Демо страница
-│   └── page.scss        # Стили демо страницы
-├── fonts.js             # Конфигурация шрифтов
-├── layout.jsx           # Корневой layout
-└── page.jsx             # Главная страница
+│   ├── page.jsx         # Demo page
+│   └── page.scss        # Demo page styles
+├── fonts.js             # Font configuration
+├── layout.jsx           # Root layout
+└── page.jsx             # Main page
 ```
 
-## Настройка шрифтов
+## Font Configuration
 
-Проект использует шрифт Montserrat с поддержкой кириллицы и следующими начертаниями:
+The project uses Montserrat font with Cyrillic support and the following weights:
 - Light (300)
 - Regular (400)
 - Medium (500)
 - SemiBold (600)
 - Bold (700)
 
-## Типографика
+## Typography
 
-Настроены следующие стили текста:
+The following text styles are configured:
 - H1: 2.5rem (40px)
 - H2: 2rem (32px)
 - H3: 1.5rem (24px)
@@ -43,36 +43,36 @@ app/
 - Small: 0.875rem (14px)
 - Button: 0.875rem (14px)
 
-## Цветовая схема
+## Color Scheme
 
-### Основные цвета
+### Primary Colors
 - `$ac`: #FF6B00
 - `$wh`: #FFFFFF
 - `$bl`: #000000
 
-### Статусные цвета
+### Status Colors
 - `$error`: #FF0000
 - `$warning`: #FFA500
 - `$success`: #00FF00
 - `$info`: #0000FF
 
-## Демо
+## Demo
 
-Демонстрация типографики и цветов доступна по адресу `/test`
+Typography and colors demonstration is available at `/test`
 
-## Запуск проекта
+## Running the Project
 
 ```bash
-# Установка зависимостей
+# Install dependencies
 npm install
 
-# Запуск в режиме разработки
+# Run in development mode
 npm run dev
 
-# Сборка проекта
+# Build the project
 npm run build
 
-# Запуск собранного проекта
+# Run the built project
 npm start
 ```
 
