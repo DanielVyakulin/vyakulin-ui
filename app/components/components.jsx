@@ -33,15 +33,35 @@ const LinkV = ({ children, text = 'p', color = 'wh', href = '#', className, ...p
   );
 };
 
-const Button = ({ children, text = 'btn', color = 'wh', className, ...props }) => {
+const Button = ({ children, text = 'btn', color = 'wh', outline = false, className, ...props }) => {
+  const buttonClass = outline ? `btn-outline-${color}` : `btn-${color}`;
+  
   return (
     <div 
-      className={`btn-${color} t-${text} ${className}`}
+      className={`${buttonClass} t-${text} ${className}`}
       {...props}
     >
       {children}
     </div>
   );
 };
+
+export function TextInput({ color = 'wh', outline = false, text = 'sm', label, placeholder, value, onChange, className, ...props }) {
+  const inputClass = outline ? `input-outline-${color}` : `input-${color}`;
+  
+  return (
+    <div className={`input-container t-${text} ${className}`}>
+      <input
+        type="text"
+        className={inputClass}
+        placeholder=" "
+        value={value}
+        onChange={onChange}
+        {...props}
+      />
+      {label && <label className="input-label">{label}</label>}
+    </div>
+  );
+}
 
 export { Text, LinkV, Button }; 

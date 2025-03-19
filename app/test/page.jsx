@@ -1,6 +1,6 @@
 'use client';
 
-import { Text, LinkV, Button } from '../components/components';
+import { Text, LinkV, Button, TextInput } from '../components/components';
 import './styles.scss';
 
 export default function TestPage() {
@@ -70,6 +70,8 @@ export default function TestPage() {
             <div className="test-variants">
               <Button text="btn" color="wh">Белая кнопка</Button>
               <Button text="btn" color="wh-ac">Белая кнопка (акцент)</Button>
+              <Button text="btn" color="wh" outline>Белая кнопка (outline)</Button>
+              <Button text="btn" color="wh-ac" outline>Белая кнопка (outline акцент)</Button>
             </div>
           </div>
           <div className="test-item">
@@ -77,12 +79,15 @@ export default function TestPage() {
             <div className="test-variants">
               <Button text="btn" color="bl">Черная кнопка</Button>
               <Button text="btn" color="bl-ac">Черная кнопка (акцент)</Button>
+              <Button text="btn" color="bl" outline>Черная кнопка (outline)</Button>
+              <Button text="btn" color="bl-ac" outline>Черная кнопка (outline акцент)</Button>
             </div>
           </div>
           <div className="test-item">
             <Text type="h3">Акцентные кнопки</Text>
             <div className="test-variants">
               <Button text="btn" color="ac">Акцентная кнопка</Button>
+              <Button text="btn" color="ac" outline>Акцентная кнопка (outline)</Button>
             </div>
           </div>
         </div>
@@ -114,6 +119,26 @@ export default function TestPage() {
           <div className="test-item">
             <div className="color-block bl-hover">Черный (hover)</div>
             <Text type="sm">#404040</Text>
+          </div>
+        </div>
+      </div>
+
+      <div className="test-section">
+        <Text type="h2">Текстовые поля</Text>
+        <div className="test-grid">
+          <div className="test-item">
+            <Text type="h3">Белые поля</Text>
+            <div className="test-variants">
+              <TextInput color="wh" label="Белое поле" placeholder="Введите текст" />
+              <TextInput color="wh" outline label="Белое поле (outline)" placeholder="Введите текст" />
+            </div>
+          </div>
+          <div className="test-item">
+            <Text type="h3">Черные поля</Text>
+            <div className="test-variants">
+              <TextInput color="bl" label="Черное поле" placeholder="Введите текст" />
+              <TextInput color="bl" outline label="Черное поле (outline)" placeholder="Введите текст" />
+            </div>
           </div>
         </div>
       </div>

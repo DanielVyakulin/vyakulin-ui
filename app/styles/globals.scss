@@ -87,6 +87,40 @@ body {
   }
 }
 
+// Outline button mixin
+@mixin outline-button-style($color, $text-color, $hover-color, $hover-text-color) {
+  background-color: transparent;
+  color: $text-color;
+  cursor: pointer;
+  padding: $vem $vem * 2;
+  border-radius: $vem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: $vem;
+  outline: $outline-width solid $color;
+  outline-offset: $outline-offset;
+
+  svg {
+    width: 1em;
+    height: 1em;
+
+    path {
+      fill: $text-color;
+    }
+  }
+  
+  &:hover {
+    background-color: $hover-color;
+    color: $hover-text-color;
+    outline-color: $hover-color;
+
+    svg path {
+      fill: $hover-text-color;
+    }
+  }
+}
+
 // Link styles
 .link-wh { @include link-style($wh, $wh-hover); }
 .link-wh-ac { @include link-style($wh, $ac); }
@@ -100,6 +134,13 @@ body {
 .btn-bl { @include button-style($bl, $wh, $bl-hover, $wh-hover); }
 .btn-bl-ac { @include button-style($bl, $wh, $ac, $bl); }
 .btn-ac { @include button-style($ac, $bl, $ac-hover, $bl-hover); }
+
+// Outline button styles
+.btn-outline-wh { @include outline-button-style($wh, $wh, $wh, $bl); }
+.btn-outline-wh-ac { @include outline-button-style($wh, $wh, $ac, $bl); }
+.btn-outline-bl { @include outline-button-style($bl, $bl, $bl, $wh); }
+.btn-outline-bl-ac { @include outline-button-style($bl, $bl, $ac, $bl); }
+.btn-outline-ac { @include outline-button-style($ac, $ac, $ac, $bl); }
 
 .header {
   position: fixed;
@@ -133,3 +174,123 @@ body {
     align-items: center;
   }
 }
+
+// Text input mixin
+@mixin text-input-style($color, $text-color, $hover-color, $hover-text-color) {
+  background-color: $color;
+  color: $text-color;
+  padding: $vem * 2 $vem * 2 $vem;
+  border-radius: $vem;
+  display: inline-flex;
+  align-items: center;
+  gap: $vem;
+  outline: none;
+  border: none;
+  width: 100%;
+  position: relative;
+
+  &::placeholder {
+    color: transparent;
+  }
+
+  &:hover {
+    background-color: $hover-color;
+    color: $hover-text-color;
+  }
+
+  &:focus {
+    background-color: $ac;
+    color: $bl;
+  }
+}
+
+// Outline text input mixin
+@mixin outline-text-input-style($color, $text-color, $hover-color, $hover-text-color) {
+  background-color: transparent;
+  color: $text-color;
+  padding: $vem * 2 $vem * 2 $vem;
+  border-radius: $vem;
+  display: inline-flex;
+  align-items: center;
+  gap: $vem;
+  border: $outline-width solid $color;
+  width: 100%;
+  position: relative;
+
+  &::placeholder {
+    color: transparent;
+  }
+
+  &:hover {
+    background-color: $hover-color;
+    color: $hover-text-color;
+    border-color: $hover-color;
+  }
+
+  &:focus {
+    background-color: $ac;
+    color: $bl;
+    border-color: $ac;
+    outline: none;
+  }
+}
+
+// Text input container
+.input-container {
+  position: relative;
+  width: 100%;
+  margin-top: $vem * 3;
+  input {
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+    font-weight: inherit;
+  }
+}
+
+// Text input label
+.input-label {
+  position: absolute;
+  left: $vem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: inherit;
+  pointer-events: none;
+  transition: all 0.3s ease;
+  padding: 0 $vem;
+}
+
+// Input label states mixin
+@mixin input-label-states($color, $hover-color, $focus-color, $filled-color) {
+  ~ .input-label {
+    color: $color;
+  }
+
+  &:hover ~ .input-label {
+    color: $hover-color;
+  }
+
+  &:focus ~ .input-label {
+    left: -$vem;
+    top: -$vem * 3;
+    color: $focus-color;
+  }
+
+  &:not(:placeholder-shown):not(:focus) ~ .input-label {
+    left: -$vem;
+    top: -$vem * 3;
+    color: $filled-color;
+  }
+}
+
+// Input label states
+.input-wh { @include input-label-states($bl, $bl-hover, $ac, $wh); }
+.input-bl { @include input-label-states($wh, $wh-hover, $ac, $bl); }
+.input-outline-wh { @include input-label-states($wh, $bl, $ac, $wh); }
+.input-outline-bl { @include input-label-states($bl, $wh, $ac, $bl); }
+
+// Text input styles
+.input-wh { @include text-input-style($wh, $bl, $wh-hover, $bl-hover); }
+.input-bl { @include text-input-style($bl, $wh, $bl-hover, $wh-hover); }
+.input-outline-wh { @include outline-text-input-style($wh, $wh, $wh, $bl); }
+.input-outline-bl { @include outline-text-input-style($bl, $bl, $bl, $wh); }

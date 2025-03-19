@@ -42,6 +42,10 @@ $line-height-button: 1rem;         // 16px
 $vem: 0.25rem;    // 4px
 $rem: 1rem;       // 16px
 
+// Outline
+$outline-width: 1px;
+$outline-offset: -1px;
+
 :root {
   font-size: $font-size-paragraph;
   font-family: $font-family;
