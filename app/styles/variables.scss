@@ -1,0 +1,71 @@
+// Typography
+$font-family: var(--font-montserrat);
+
+:root {
+  font-size: 16px;
+  font-family: $font-family;
+}
+
+// Colors
+$ac: rgb(0, 255, 191);
+$ac-hover: rgb(23, 230, 177);
+$wh: rgb(230, 230, 230);
+$wh-hover: rgb(204, 204, 204);
+$bl: rgb(26, 26, 26);
+$bl-hover: rgb(51, 51, 51);
+
+// Status Colors
+$error: rgb(217, 32, 32);
+$warning: rgb(217, 148, 32);
+$success: rgb(32, 217, 100);
+$info: rgb(32, 149, 217);
+
+// Font Weights
+$font-weight-bold: 700;
+$font-weight-semibold: 600;
+$font-weight-medium: 500;
+$font-weight-regular: 400;
+$font-weight-light: 300;
+
+// Font Sizes
+$font-size-heading-1: 2rem;    // 32px
+$font-size-heading-2: 1.5rem;  // 24px
+$font-size-heading-3: 1.25rem; // 20px
+$font-size-paragraph: 1rem;    // 16px
+$font-size-small: 0.875rem;    // 14px
+$font-size-button: 1rem;       // 16px
+
+// Line Heights
+$line-height-heading-1: 2.375rem;  // 38px
+$line-height-heading-2: 1.8125rem; // 29px
+$line-height-heading-3: 1.5rem;    // 24px
+$line-height-paragraph: 1.5rem;    // 24px
+$line-height-small: 1.3125rem;     // 21px
+$line-height-button: 1rem;         // 16px
+
+// Letter Spacing
+$letter-spacing-heading-1: -1%;  
+$letter-spacing-heading-2: -.5%; // -0.5px
+$letter-spacing-heading-3: 0;
+$letter-spacing-paragraph: 1%;   // 1px
+$letter-spacing-small: 1%;       // 1px
+$letter-spacing-button: 1.5%;     // 1.5px
+
+// Padding
+$padding-xs: 0.25rem;   // 4px
+$padding-sm: 0.5rem;    // 8px
+$padding-md: 1rem;      // 16px
+$padding-lg: 1.5rem;    // 24px
+
+// Gap
+$gap-4: 0.25rem;    // 4px
+$gap-8: 0.5rem;     // 8px
+$gap-16: 1rem;      // 16px
+$gap-24: 1.5rem;    // 24px
+$gap-32: 2rem;      // 32px
+
+// Border Radius
+$radius-sm: 0.25rem;    // 4px
+$radius-md: 0.5rem;     // 8px
+$radius-lg: 1rem;       // 16px
+$radius-full: 100rem;

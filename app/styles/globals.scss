@@ -1,0 +1,43 @@
+@import './variables.scss';
+
+:root {
+  font-size: $font-size-paragraph;
+  font-family: $font-family;
+  line-height: $line-height-paragraph;
+  letter-spacing: $letter-spacing-paragraph;
+  color: $wh;
+  background-color: $bl;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+body {
+  background-color: $bl;
+  color: $wh;
+}
+
+// Typography mixin
+@mixin text-style($size, $line-height, $letter-spacing, $weight) {
+  font-size: $size;
+  line-height: $line-height;
+  letter-spacing: $letter-spacing;
+  font-weight: $weight;
+}
+
+// Text styles
+.t-h1 { @include text-style($font-size-heading-1, $line-height-heading-1, $letter-spacing-heading-1, $font-weight-bold); }
+.t-h2 { @include text-style($font-size-heading-2, $line-height-heading-2, $letter-spacing-heading-2, $font-weight-semibold); }
+.t-h3 { @include text-style($font-size-heading-3, $line-height-heading-3, $letter-spacing-heading-3, $font-weight-medium); }
+.t-p { @include text-style($font-size-paragraph, $line-height-paragraph, $letter-spacing-paragraph, $font-weight-regular); }
+.t-sm { @include text-style($font-size-small, $line-height-small, $letter-spacing-small, $font-weight-regular); }
+.t-btn { @include text-style($font-size-button, $line-height-button, $letter-spacing-button, $font-weight-medium); }
