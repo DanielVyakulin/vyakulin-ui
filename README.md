@@ -2,7 +2,7 @@
 
 UI-кит на Next.js с использованием SASS.
 
-## Технологии
+## Technologies
 
 - Next.js
 - React
@@ -57,16 +57,16 @@ UI-кит на Next.js с использованием SASS.
 ## Установка и запуск
 
 ```bash
-# Установка зависимостей
+# Install dependencies
 npm install
 
-# Запуск в режиме разработки
+# Run in development mode
 npm run dev
 
-# Сборка проекта
+# Build the project
 npm run build
 
-# Запуск собранного проекта
+# Run the built project
 npm start
 ```
 
