@@ -1,4 +1,80 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Vyakulin UI
+
+Проект на Next.js с настроенной типографикой и цветовой схемой.
+
+## Технологии
+
+- Next.js 14
+- React
+- SCSS
+- Google Fonts (Montserrat)
+
+## Структура проекта
+
+```
+app/
+├── styles/
+│   ├── variables.scss    # SCSS переменные
+│   └── globals.scss      # Глобальные стили
+├── test/
+│   ├── page.jsx         # Демо страница
+│   └── page.scss        # Стили демо страницы
+├── fonts.js             # Конфигурация шрифтов
+├── layout.jsx           # Корневой layout
+└── page.jsx             # Главная страница
+```
+
+## Настройка шрифтов
+
+Проект использует шрифт Montserrat с поддержкой кириллицы и следующими начертаниями:
+- Light (300)
+- Regular (400)
+- Medium (500)
+- SemiBold (600)
+- Bold (700)
+
+## Типографика
+
+Настроены следующие стили текста:
+- H1: 2.5rem (40px)
+- H2: 2rem (32px)
+- H3: 1.5rem (24px)
+- Paragraph: 1rem (16px)
+- Small: 0.875rem (14px)
+- Button: 0.875rem (14px)
+
+## Цветовая схема
+
+### Основные цвета
+- `$ac`: #FF6B00
+- `$wh`: #FFFFFF
+- `$bl`: #000000
+
+### Статусные цвета
+- `$error`: #FF0000
+- `$warning`: #FFA500
+- `$success`: #00FF00
+- `$info`: #0000FF
+
+## Демо
+
+Демонстрация типографики и цветов доступна по адресу `/test`
+
+## Запуск проекта
+
+```bash
+# Установка зависимостей
+npm install
+
+# Запуск в режиме разработки
+npm run dev
+
+# Сборка проекта
+npm run build
+
+# Запуск собранного проекта
+npm start
+```
 
 ## Getting Started
 
