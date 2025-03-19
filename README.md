@@ -1,196 +1,181 @@
 # Vyakulin UI
 
-Современный UI-кит для React приложений, построенный на Next.js 15 и React 19.
+Modern UI kit for React applications built with Next.js 15 and React 19.
 
-## 🚀 Особенности
+## 🚀 Features
 
-- ⚡️ Next.js 15 с Turbopack
-- 🎨 SCSS с переменными и миксинами
-- 📱 Адаптивный дизайн
-- 🎯 Компонентный подход
-- 🎨 Кастомизируемые стили
-- 📦 Легковесный
+- ⚡️ Next.js 15 with Turbopack
+- 🎨 SCSS with variables and mixins
+- 📱 Responsive design
+- 🎯 Component-based approach
+- 🎨 Customizable styles
+- 📦 Lightweight
 
-## 🛠 Технологии
+## 🛠 Technologies
 
 - Next.js 15.2.3
 - React 19
 - SCSS
 - React Icons
 
-## 📦 Установка
+## 📦 Installation
 
 ```bash
 npm install
 ```
 
-## 🚀 Запуск
+## 🚀 Running
 
 ```bash
-# Разработка
+# Development
 npm run dev
 
-# Сборка
+# Build
 npm run build
 
-# Продакшн
+# Production
 npm run start
 ```
 
-## 🎨 Компоненты
+## 🎨 Components
+
+### Common Attributes
+
+All components support these attributes:
+
+- `text` (string) - text size (inherits from parent):
+  - `h1` - heading 1
+  - `h2` - heading 2
+  - `h3` - heading 3
+  - `p` - paragraph
+  - `sm` - small text
+  - `btn` - button text
+- `className` (string) - additional classes
 
 ### Typography
 
-Компонент `Text` для отображения текста с различными стилями.
+`Text` component for displaying text with various styles.
 
 ```jsx
-<Text text="h1">Заголовок 1</Text>
-<Text text="h2">Заголовок 2</Text>
-<Text text="h3">Заголовок 3</Text>
-<Text text="p">Параграф</Text>
-<Text text="sm">Маленький текст</Text>
-<Text text="btn">Текст кнопки</Text>
+<Text text="h1">Heading</Text>
 ```
+
+#### Attributes
+
+- `text` (string) - text style:
+  - `h1` - heading 1
+  - `h2` - heading 2
+  - `h3` - heading 3
+  - `p` - paragraph
+  - `sm` - small text
+  - `btn` - button text
 
 ### Links
 
-Компонент `LinkV` для отображения ссылок с различными стилями.
+`LinkV` component for displaying links with various styles.
 
 ```jsx
-<LinkV color="wh">Белая ссылка</LinkV>
-<LinkV color="wh-ac">Белая акцентная ссылка</LinkV>
-<LinkV color="bl">Черная ссылка</LinkV>
-<LinkV color="bl-ac">Черная акцентная ссылка</LinkV>
-<LinkV color="ac">Акцентная ссылка</LinkV>
+<LinkV color="wh">Link</LinkV>
 ```
+
+#### Attributes
+
+- `color` (string) - link color:
+  - `wh` - white
+  - `wh-ac` - white accent
+  - `bl` - black
+  - `bl-ac` - black accent
+  - `ac` - accent
+- `href` (string) - link URL
 
 ### Buttons
 
-Компонент `Button` для отображения кнопок с различными стилями.
+`Button` component for displaying buttons with various styles.
 
 ```jsx
-<Button color="wh">Белая кнопка</Button>
-<Button color="wh-ac">Белая акцентная кнопка</Button>
-<Button color="bl">Черная кнопка</Button>
-<Button color="bl-ac">Черная акцентная кнопка</Button>
-<Button color="ac">Акцентная кнопка</Button>
-<Button color="wh" outline>Белая outline кнопка</Button>
-<Button color="wh-ac" outline>Белая акцентная outline кнопка</Button>
-<Button color="bl" outline>Черная outline кнопка</Button>
-<Button color="bl-ac" outline>Черная акцентная outline кнопка</Button>
-<Button color="ac" outline>Акцентная outline кнопка</Button>
+<Button color="wh">Button</Button>
 ```
+
+#### Attributes
+
+- `color` (string) - button color:
+  - `wh` - white
+  - `wh-ac` - white accent
+  - `bl` - black
+  - `bl-ac` - black accent
+  - `ac` - accent
+- `outline` (boolean) - use outline style
+- `onClick` (function) - click handler
 
 ### Text Input
 
-Компонент `TextInput` для отображения текстовых полей с различными стилями.
+`TextInput` component for displaying text fields with various styles.
 
 ```jsx
-<TextInput color="wh" label="Белое поле" placeholder="Введите текст" />
-<TextInput color="wh" outline label="Белое outline поле" placeholder="Введите текст" />
-<TextInput color="bl" label="Черное поле" placeholder="Введите текст" />
-<TextInput color="bl" outline label="Черное outline поле" placeholder="Введите текст" />
+<TextInput color="wh" label="Field" placeholder="Enter text" />
 ```
 
-#### Параметры
+#### Attributes
 
-- `color` (string) - цвет инпута:
-  - `wh` - белый
-  - `bl` - черный
-- `outline` (boolean) - использовать ли outline стиль
-- `text` (string) - размер текста (наследуется от родителя):
-  - `h1` - заголовок 1
-  - `h2` - заголовок 2
-  - `h3` - заголовок 3
-  - `p` - параграф
-  - `sm` - маленький текст
-  - `btn` - текст кнопки
-- `label` (string) - текст лейбла
-- `placeholder` (string) - текст плейсхолдера
-- `value` (string) - значение инпута
-- `onChange` (function) - функция обработки изменения значения
-- `className` (string) - дополнительные классы
+- `color` (string) - input color:
+  - `wh` - white
+  - `bl` - black
+- `outline` (boolean) - use outline style
+- `label` (string) - label text
+- `placeholder` (string) - placeholder text
+- `value` (string) - input value
+- `onChange` (function) - change handler
 
-#### Состояния
+## 🎨 Styling
 
-- **Default**: 
-  - Белый инпут: белый фон, черный текст
-  - Черный инпут: черный фон, белый текст
-  - Белый outline: прозрачный фон, белая рамка, белый текст
-  - Черный outline: прозрачный фон, черная рамка, черный текст
+### Color Palette
 
-- **Hover**:
-  - Белый инпут: hover-белый фон, hover-черный текст
-  - Черный инпут: hover-черный фон, hover-белый текст
-  - Белый outline: белый фон, белая рамка, черный текст
-  - Черный outline: черный фон, черная рамка, белый текст
+- Accent: `#00FFBF`
+- Accent (hover): `#30BF9A`
+- White: `#E5E5E5`
+- White (hover): `#A6A6A6`
+- Black: `#000000`
+- Black (hover): `#404040`
 
-- **Focus**:
-  - Все варианты: акцентный фон, черный текст, акцентная рамка (для outline)
+### Typography
 
-- **Filled**:
-  - Белый инпут: белый фон, черный текст
-  - Черный инпут: черный фон, белый текст
-  - Белый outline: прозрачный фон, белая рамка, белый текст
-  - Черный outline: прозрачный фон, черная рамка, черный текст
-
-#### Лейбл
-
-- В состоянии default лейбл находится внутри инпута
-- При фокусе или заполнении лейбл перемещается над инпутом
-- Цвет лейбла меняется в зависимости от состояния инпута
-- Размер шрифта лейбла наследуется от родителя
-
-## 🎨 Стилизация
-
-### Цветовая палитра
-
-- Акцентный: `#00FFBF`
-- Акцентный (hover): `#30BF9A`
-- Белый: `#E5E5E5`
-- Белый (hover): `#A6A6A6`
-- Черный: `#000000`
-- Черный (hover): `#404040`
-
-### Типографика
-
-- Шрифт: Montserrat
-- Размеры:
+- Font: Montserrat
+- Sizes:
   - H1: 2rem (32px)
   - H2: 1.5rem (24px)
   - H3: 1.25rem (20px)
-  - Параграф: 1rem (16px)
-  - Маленький текст: 0.875rem (14px)
-  - Кнопка: 1rem (16px)
+  - Paragraph: 1rem (16px)
+  - Small text: 0.875rem (14px)
+  - Button: 1rem (16px)
 
-### Отступы
+### Spacing
 
-- Базовый отступ: 0.25rem (4px)
-- Базовый размер: 1rem (16px)
+- Base spacing: 0.25rem (4px)
+- Base size: 1rem (16px)
 
-## 📁 Структура проекта
+## 📁 Project Structure
 
 ```
 vyakulin-ui/
 ├── app/
-│   ├── components/     # React компоненты
-│   ├── styles/        # SCSS стили
-│   ├── layout.jsx     # Корневой layout
-│   └── page.jsx       # Главная страница
-├── public/            # Статические файлы
-└── package.json       # Зависимости и скрипты
+│   ├── components/     # React components
+│   ├── styles/        # SCSS styles
+│   ├── layout.jsx     # Root layout
+│   └── page.jsx       # Main page
+├── public/            # Static files
+└── package.json       # Dependencies and scripts
 ```
 
-## 🔧 Настройка
+## 🔧 Configuration
 
-### Шрифты
-Шрифты настраиваются в `app/fonts.js`
+### Fonts
+Fonts are configured in `app/fonts.js`
 
-### Стили
-Основные стили находятся в:
-- `app/styles/globals.scss` - Глобальные стили
-- `app/styles/variables.scss` - Переменные и миксины
+### Styles
+Main styles are located in:
+- `app/styles/globals.scss` - Global styles
+- `app/styles/variables.scss` - Variables and mixins
 
-## 📝 Лицензия
+## 📝 License
 
 MIT 
