@@ -129,15 +129,15 @@ export default function TestPage() {
           <div className="test-item">
             <Text type="h3">Белые поля</Text>
             <div className="test-variants">
-              <TextInput color="wh" label="Белое поле" placeholder="Введите текст" />
-              <TextInput color="wh" outline label="Белое поле (outline)" placeholder="Введите текст" />
+              <TextInput color="wh" label="Белое поле" />
+              <TextInput color="wh" outline label="Белое поле (outline)" />
             </div>
           </div>
           <div className="test-item">
             <Text type="h3">Черные поля</Text>
             <div className="test-variants">
-              <TextInput color="bl" label="Черное поле" placeholder="Введите текст" />
-              <TextInput color="bl" outline label="Черное поле (outline)" placeholder="Введите текст" />
+              <TextInput color="bl" label="Черное поле" />
+              <TextInput color="bl" outline label="Черное поле (outline)" />
             </div>
           </div>
         </div>

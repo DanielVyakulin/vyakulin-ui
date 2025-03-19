@@ -46,20 +46,19 @@ const Button = ({ children, text = 'btn', color = 'wh', outline = false, classNa
   );
 };
 
-export function TextInput({ color = 'wh', outline = false, text = 'sm', label, placeholder, value, onChange, className, ...props }) {
+export function TextInput({ color = 'wh', outline = false, label, value, onChange, className, text = 'sm', ...props }) {
   const inputClass = outline ? `input-outline-${color}` : `input-${color}`;
-  
   return (
     <div className={`input-container t-${text} ${className}`}>
       <input
         type="text"
         className={inputClass}
-        placeholder=" "
         value={value}
         onChange={onChange}
+        placeholder=""
         {...props}
       />
-      {label && <label className="input-label">{label}</label>}
+      <label className="input-label">{label}</label>
     </div>
   );
 }

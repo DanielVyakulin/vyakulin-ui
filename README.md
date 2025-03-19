@@ -112,7 +112,7 @@ All components support these attributes:
 `TextInput` component for displaying text fields with various styles.
 
 ```jsx
-<TextInput color="wh" label="Field" placeholder="Enter text" />
+<TextInput color="wh" label="Field" />
 ```
 
 #### Attributes
@@ -122,7 +122,6 @@ All components support these attributes:
   - `bl` - black
 - `outline` (boolean) - use outline style
 - `label` (string) - label text
-- `placeholder` (string) - placeholder text
 - `value` (string) - input value
 - `onChange` (function) - change handler
 
