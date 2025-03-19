@@ -9,52 +9,46 @@ UI-кит на Next.js с использованием SASS.
 - SASS
 - JavaScript
 
-## Компоненты
+## Components
 
 ### Text
-Компонент для отображения текста с различными стилями.
-
 ```jsx
-<Text type="h1">Заголовок</Text>
-<Text type="h2">Подзаголовок</Text>
-<Text type="h3">Заголовок секции</Text>
-<Text type="p">Обычный текст</Text>
-<Text type="sm">Маленький текст</Text>
-<Text type="btn">Текст кнопки</Text>
+<Text type="h1 | h2 | h3 | p | sm | btn">
+  children
+</Text>
 ```
 
 ### Link
-Компонент ссылки с различными цветами и стилями текста.
-
 ```jsx
-<Link text="h3" color="wh">Белая ссылка</Link>
-<Link text="h3" color="wh-ac">Белая ссылка с акцентом</Link>
-<Link text="h3" color="bl">Черная ссылка</Link>
-<Link text="h3" color="bl-ac">Черная ссылка с акцентом</Link>
-<Link text="h3" color="ac">Акцентная ссылка</Link>
+<Link 
+  text="h1 | h2 | h3 | p | sm | btn"
+  color="wh | wh-ac | bl | bl-ac | ac"
+  href="string"
+>
+  children
+</Link>
 ```
 
 ### Button
-Компонент кнопки с различными цветами и стилями текста.
-
 ```jsx
-<Button text="btn" color="wh">Белая кнопка</Button>
-<Button text="btn" color="wh-ac">Белая кнопка с акцентом</Button>
-<Button text="btn" color="bl">Черная кнопка</Button>
-<Button text="btn" color="bl-ac">Черная кнопка с акцентом</Button>
-<Button text="btn" color="ac">Акцентная кнопка</Button>
+<Button 
+  text="h1 | h2 | h3 | p | sm | btn"
+  color="wh | wh-ac | bl | bl-ac | ac"
+>
+  children
+</Button>
 ```
 
-## Цветовая палитра
+## Color Palette
 
-- Акцентный: #00FFBF
-- Акцентный (hover): #30BF9A
-- Белый: #E5E5E5
-- Белый (hover): #A6A6A6
-- Черный: #1A1A1A
-- Черный (hover): #595959
+- Accent: #00FFBF
+- Accent (hover): #30BF9A
+- White: #E5E5E5
+- White (hover): #A6A6A6
+- Black: #1A1A1A
+- Black (hover): #595959
 
-## Установка и запуск
+## Installation & Run
 
 ```bash
 # Install dependencies
@@ -70,6 +64,6 @@ npm run build
 npm start
 ```
 
-## Тестирование компонентов
+## Testing
 
-Для просмотра всех компонентов и их вариаций перейдите по адресу `/test`. 
+View all components and their variations at `/test`. 
