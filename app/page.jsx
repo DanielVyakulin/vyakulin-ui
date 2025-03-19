@@ -1,6 +1,8 @@
+'use client';
+
 export default function Home() {
   return (
-    <main>
+    <main className="all">
     </main>
   );
 } 

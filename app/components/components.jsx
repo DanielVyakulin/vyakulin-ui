@@ -1,7 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 
-const Text = ({ children, type = 'p', className, ...props }) => {
+const Text = ({ children, text = 'p', className, ...props }) => {
   const variants = {
     h1: 't-h1',
     h2: 't-h2',
@@ -13,7 +13,7 @@ const Text = ({ children, type = 'p', className, ...props }) => {
 
   return (
     <p 
-      className={`${variants[type]} ${className}`}
+      className={`${variants[text]} ${className}`}
       {...props}
     >
       {children}
