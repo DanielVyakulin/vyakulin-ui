@@ -1,5 +1,7 @@
 # Vyakulin UI
 
+[![npm](https://img.shields.io/npm/v/vyakulin-ui)](https://www.npmjs.com/package/vyakulin-ui)
+
 Modern UI kit for React applications built with Next.js 15 and React 19.
 
 ## 🚀 Features
@@ -11,17 +13,12 @@ Modern UI kit for React applications built with Next.js 15 and React 19.
 - 🎨 Customizable styles
 - 📦 Lightweight
 
-## 🛠 Technologies
-
-- Next.js 15.2.3
-- React 19
-- SCSS
-- React Icons
-
 ## 📦 Installation
 
 ```bash
-npm install
+npm install vyakulin-ui
+# or
+pnpm add vyakulin-ui
 ```
 
 ## 🚀 Running
@@ -36,6 +33,14 @@ npm run build
 # Production
 npm run start
 ```
+
+## 🛠 Tech Stack
+
+- Published as npm package
+- Next.js 15.2.3 (Peer dependency)
+- React 19 (Peer dependency)
+- SCSS
+- React Icons
 
 ## 🎨 Components
 

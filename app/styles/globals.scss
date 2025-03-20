@@ -142,39 +142,6 @@ body {
 .btn-outline-bl-ac { @include outline-button-style($bl, $bl, $ac, $bl); }
 .btn-outline-ac { @include outline-button-style($ac, $ac, $ac, $bl); }
 
-.header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 100;
-  padding: ($vem * 6) 210px 0px;
-
-  &-container {
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: $bl;
-    outline: 1px solid $wh;
-    outline-offset: -1px;
-    padding: $vem*2 $vem*6;
-    border-radius: $vem*6;
-  }
-
-  &-nav {
-    display: flex;
-    gap: $vem * 4;
-    align-items: center;
-  }
-
-  &-logos {
-    display: flex;
-    gap: $vem * 4;
-    align-items: center;
-  }
-}
-
 // Text input mixin
 @mixin text-input-style($color, $text-color, $hover-color, $hover-text-color) {
   background-color: $color;
@@ -294,3 +261,36 @@ body {
 .input-bl { @include text-input-style($bl, $wh, $bl-hover, $wh-hover); }
 .input-outline-wh { @include outline-text-input-style($wh, $wh, $wh, $bl); }
 .input-outline-bl { @include outline-text-input-style($bl, $bl, $bl, $wh); }
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+  padding: ($vem * 6) $media-width 0px;
+
+  &-container {
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: $bl;
+    outline: 1px solid $wh;
+    outline-offset: -1px;
+    padding: $vem*2 $vem*6;
+    border-radius: $vem*6;
+  }
+
+  &-nav {
+    display: flex;
+    gap: $vem * 4;
+    align-items: center;
+  }
+
+  &-logos {
+    display: flex;
+    gap: $vem * 4;
+    align-items: center;
+  }
+}
