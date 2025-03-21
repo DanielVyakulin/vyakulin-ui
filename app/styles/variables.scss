@@ -54,10 +54,10 @@ $outline-offset: -1px;
   color: $wh;
 }
 
-$media-width: 210px;
+$media-width: $vem * 52;
 
 @media screen and (min-width: 1500px) {
-  $media-width: 210px;
+  $media-width: $vem * 52;
 }
 
 // @media screen and (min-width: ) and (max-width: 1499px) {
