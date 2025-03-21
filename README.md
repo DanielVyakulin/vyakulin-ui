@@ -12,6 +12,8 @@ Modern UI kit for React applications built with Next.js 15 and React 19.
 - 🎯 Component-based approach
 - 🎨 Customizable styles
 - 📦 Lightweight
+- 🔄 Copy to clipboard functionality
+- 🧭 Breadcrumb navigation
 
 ## 📦 Installation
 
@@ -41,6 +43,7 @@ npm run start
 - React 19 (Peer dependency)
 - SCSS
 - React Icons
+- clsx for class name management
 
 ## 🎨 Components
 
@@ -114,10 +117,10 @@ All components support these attributes:
 
 ### Text Input
 
-`TextInput` component for displaying text fields with various styles.
+`Inp` component for displaying text fields with various styles.
 
 ```jsx
-<TextInput color="wh" label="Field" />
+<Inp color="wh" label="Field" />
 ```
 
 #### Attributes
@@ -129,6 +132,41 @@ All components support these attributes:
 - `label` (string) - label text
 - `value` (string) - input value
 - `onChange` (function) - change handler
+
+### Breadcrumb Navigation
+
+`BreadCrumb` component for displaying navigation path.
+
+```jsx
+<BreadCrumb />
+```
+
+#### Features
+- Automatic path generation from URL
+- Last item highlighted with accent color
+- Responsive design
+- Customizable text size
+
+### Code Snippet
+
+`Snip` component for displaying code snippets with copy functionality.
+
+```jsx
+<Snip name="Example" icon={<Icon />}>
+  npm install vyakulin-ui
+</Snip>
+```
+
+#### Attributes
+- `name` (string) - snippet name
+- `icon` (ReactNode) - optional icon
+- `className` (string) - additional classes
+
+#### Features
+- Copy to clipboard functionality
+- Visual feedback on copy
+- Syntax highlighting support
+- Customizable styling
 
 ## 🎨 Styling
 
