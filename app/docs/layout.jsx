@@ -1,6 +1,6 @@
-import DocsNav from "../components/docsnav";
+import DocsNav from "@/components/docsnav";
 import React from 'react';
-import './style.scss';
+import '@/docs/style.scss';
 
 export const metadata = {
   title: "Vyakulin UI Docs"

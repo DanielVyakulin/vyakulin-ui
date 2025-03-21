@@ -1,6 +1,6 @@
 'use client';
 
-import { LinkV } from './elements';
+import { LinkV } from '@/components/elements';
 import { SiTelegram, SiGithub } from "react-icons/si";
 
 export function Header() {

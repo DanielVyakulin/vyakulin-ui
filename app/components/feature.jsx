@@ -1,4 +1,4 @@
-import { Text } from './elements';
+import { Text } from '@/components/elements';
 
 const Feature = ({ children, icon }) => {
   return (

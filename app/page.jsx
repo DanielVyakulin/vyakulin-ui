@@ -1,10 +1,10 @@
 'use client';
-import './style.scss';
+import '@/style.scss';
 import React from 'react';
 import { FaAlignCenter, FaFeatherPointed, FaPalette, FaSass } from 'react-icons/fa6';
-import { Snip, Text } from './components/elements';
+import { Snip, Text } from '@/components/elements';
 import { SiGnubash, SiNextdotjs } from "react-icons/si";
-import Feature from './components/feature';
+import Feature from '@/components/feature';
 
 export default function Home() {
   return (
