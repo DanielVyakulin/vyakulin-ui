@@ -1,4 +1,5 @@
 import React from 'react';
+import { Text } from '../components/elements';
 
 export default function Variables() {
   return (
