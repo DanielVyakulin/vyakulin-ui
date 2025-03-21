@@ -6,7 +6,7 @@ import { SiTelegram, SiGithub } from "react-icons/si";
 export function Header() {
   return (
     <header className="header">
-      <div className="header-container ch">
+      <div className="header-container ch ph-4 pv-2">
         <Logo />  
         <nav className="header-nav ch gap-4">
           <LinkV text="p" color="wh" href="/docs">Docs</LinkV>

@@ -52,15 +52,13 @@ const Button = ({ children, text = 'btn', color = 'wh', outline = false, classNa
   );
 };
 
-const Inp = ({ color = 'wh', outline = false, label, value, onChange, className, text = 'sm', ...props }) => {
+const Input = ({ color = 'wh', outline = false, label, className, text = 'sm', ...props }) => {
   const inputClass = outline ? `input-outline-${color}` : `input-${color}`;
   return (
     <div className={clsx('input-container', `t-${text}`, className)}>
       <input
         type="text"
         className={clsx(inputClass, `gap-1`)}
-        value={value}
-        onChange={onChange}
         placeholder=""
         {...props}
       />
@@ -130,4 +128,4 @@ const Snip = ({ children, className, name, icon, ...props }) => {
   );
 }
 
-export { Text, LinkV, Button, Inp, BreadCrumb, Snip }; 
+export { Text, LinkV, Button, Input, BreadCrumb, Snip }; 

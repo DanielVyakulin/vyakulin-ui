@@ -264,6 +264,7 @@ body {
   z-index: 100;
   padding-left: $media-width;
   padding-right: $media-width;
+  padding-top: $vem * 4;
 
   &-container {
     margin: 0 auto;
