@@ -1,4 +1,4 @@
-import { Text, BreadCrumb, LinkV } from './elements';
+import { Text, BreadCrumb, LinkV } from '@/components/elements';
 
 const DocsNav = ({ children }) => {
 	return (
