@@ -1,0 +1,6 @@
+@use '../styles/variables' as *;
+
+.all {
+  flex-direction: row;
+  gap: $vem * 10;
+}
