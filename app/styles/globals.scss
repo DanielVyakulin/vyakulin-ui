@@ -35,7 +35,6 @@ body {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: $vem;
 
   svg {
     width: 1em;
@@ -56,17 +55,19 @@ body {
   }
 }
 
-// Button mixin
-@mixin button-style($color, $text-color, $hover-color, $hover-text-color) {
-  background-color: $color;
-  color: $text-color;
+.btn {
   cursor: pointer;
-  padding: $vem $vem * 2;
   border-radius: $vem;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: $vem;
+}
+
+// Button mixin
+@mixin button-style($color, $text-color, $hover-color, $hover-text-color) {
+  @extend .btn;
+  background-color: $color;
+  color: $text-color;
 
   svg {
     width: 1em;
@@ -89,15 +90,9 @@ body {
 
 // Outline button mixin
 @mixin outline-button-style($color, $text-color, $hover-color, $hover-text-color) {
+  @extend .btn;
   background-color: transparent;
   color: $text-color;
-  cursor: pointer;
-  padding: $vem $vem * 2;
-  border-radius: $vem;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: $vem;
   outline: $outline-width solid $color;
   outline-offset: $outline-offset;
 
@@ -142,15 +137,19 @@ body {
 .btn-outline-bl-ac { @include outline-button-style($bl, $bl, $ac, $bl); }
 .btn-outline-ac { @include outline-button-style($ac, $ac, $ac, $bl); }
 
-// Text input mixin
-@mixin text-input-style($color, $text-color, $hover-color, $hover-text-color) {
-  background-color: $color;
-  color: $text-color;
+
+.text-input {
   padding: $vem * 2 $vem * 2 $vem;
   border-radius: $vem;
   display: inline-flex;
   align-items: center;
-  gap: $vem;
+}
+
+// Text input mixin
+@mixin text-input-style($color, $text-color, $hover-color, $hover-text-color) {
+  background-color: $color;
+  color: $text-color;
+  @extend .text-input;
   outline: none;
   border: none;
   width: 100%;
@@ -175,11 +174,7 @@ body {
 @mixin outline-text-input-style($color, $text-color, $hover-color, $hover-text-color) {
   background-color: transparent;
   color: $text-color;
-  padding: $vem * 2 $vem * 2 $vem;
-  border-radius: $vem;
-  display: inline-flex;
-  align-items: center;
-  gap: $vem;
+  @extend .text-input;
   border: $outline-width solid $color;
   width: 100%;
   position: relative;
@@ -224,7 +219,6 @@ body {
   color: inherit;
   pointer-events: none;
   transition: all 0.3s ease;
-  padding: 0 $vem;
 }
 
 // Input label states mixin
@@ -268,79 +262,112 @@ body {
   left: 0;
   width: 100%;
   z-index: 100;
-  padding: ($vem * 4) $media-width 0px;
+  padding-left: $media-width;
+  padding-right: $media-width;
 
   &-container {
     margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
     background-color: $bl;
     outline: 1px solid $wh;
     outline-offset: -1px;
-    padding: $vem*2 $vem*6;
     border-radius: $vem*6;
+    justify-content: space-between;
+    align-items: center;
   }
 
   &-nav {
-    display: flex;
-    gap: $vem * 4;
     align-items: center;
   }
 
   &-logos {
-    display: flex;
-    gap: $vem * 4;
     align-items: center;
   }
 }
 
-.all  {
+.all {
   margin-top: $vem * 20;
-  padding: 0 $media-width;
+  padding-left: $media-width;
+  padding-right: $media-width;
 }
 
 .breadcrumb {
-  display: inline-flex;
-  gap: $vem * 2;
   align-items: center;
 }
 
 .snip {
-  display: inline-flex;
-  flex-direction: column;
   background-color: $bl;
   border: 1px solid $wh;
   border-radius: $vem * 2;
   min-width: 250px;
 
   &-name {
-    display: flex;
-    align-items: center;
     justify-content: space-between;
+    align-items: center;
     background-color: $bl-hover;
-    padding: $vem * 2;
     border-top-left-radius: $vem * 2;
     border-top-right-radius: $vem * 2;
 
     &-language {
-      display: flex;
       align-items: center;
-      gap: $vem;
     }
 
     &-copy {
-      display: flex;
       align-items: center;
-      gap: $vem;
       cursor: pointer;
     }
   }
 
   &-code {
-    padding: $vem $vem * 2;
+    display: block;
     span {
       color: $info;
     }
+  }
+}
+
+.feature {
+  align-items: center;
+  &-icon {
+    svg {
+      width: $vem * 12;
+      height: $vem * 12;
+    }
+    path {
+      fill: $wh;
+    }
+  }
+}
+
+// Flexbox direction classes
+.ch {
+  display: flex;
+  flex-direction: row;
+}
+
+.cv {
+  display: flex;
+  flex-direction: column;
+}
+
+// Gap classes
+@for $i from 1 through 12 {
+  .gap-#{$i} {
+    gap: $vem * $i;
+  }
+}
+
+// Padding horizontal classes
+@for $i from 1 through 12 {
+  .ph-#{$i} {
+    padding-right: $vem * $i;
+    padding-left: $vem * $i;
+  }
+}
+
+// Padding vertical classes
+@for $i from 1 through 12 {
+  .pv-#{$i} {
+    padding-top: $vem * $i;
+    padding-bottom: $vem * $i;
   }
 }

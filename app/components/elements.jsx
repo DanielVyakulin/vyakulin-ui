@@ -31,7 +31,7 @@ const LinkV = ({ children, text = 'p', color = 'wh', href = '#', className, ...p
   return (
     <Link 
       href={href} 
-      className={clsx(`link-${color}`, `t-${text}`, className)}
+      className={clsx(`link-${color}`, `gap-1`, `t-${text}`, className)}
       {...props}
     >
       {children}
@@ -44,7 +44,7 @@ const Button = ({ children, text = 'btn', color = 'wh', outline = false, classNa
   
   return (
     <div 
-      className={clsx(buttonClass, `t-${text}`, className)}
+      className={clsx(buttonClass, `gap-1 ph-2 ph-1`, `t-${text}`, className)}
       {...props}
     >
       {children}
@@ -58,13 +58,13 @@ const Inp = ({ color = 'wh', outline = false, label, value, onChange, className,
     <div className={clsx('input-container', `t-${text}`, className)}>
       <input
         type="text"
-        className={clsx(inputClass)}
+        className={clsx(inputClass, `gap-1`)}
         value={value}
         onChange={onChange}
         placeholder=""
         {...props}
       />
-      <label className="input-label">{label}</label>
+      <label className="input-label ph-1">{label}</label>
     </div>
   );
 }
@@ -74,7 +74,7 @@ const BreadCrumb = ({ className, text = 'sm', ...props }) => {
   const paths = pathname.split('/').filter(Boolean);
 
   return (
-    <div className={clsx('breadcrumb', `t-${text}`, className)} {...props}>
+    <div className={clsx('breadcrumb ch gap-2', `t-${text}`, className)} {...props}>
       <LinkV href="/" text={text}>home</LinkV>
       {paths.map((path, index) => (
         <React.Fragment key={path}>
@@ -114,8 +114,8 @@ const Snip = ({ children, className, name, icon, ...props }) => {
 
   return (
     <pre className={clsx('snip', className)} {...props}>
-      <div className="snip-name">
-        <Text text="h3" className="snip-name-language">{icon}{name}</Text>
+      <div className="snip-name ch ph-2 pv-2">
+        <Text text="h3" className="snip-name-language ch gap-1">{icon}{name}</Text>
         <p 
           className="link-wh-ac t-btn snip-name-copy" 
           onClick={handleCopy}
@@ -123,7 +123,7 @@ const Snip = ({ children, className, name, icon, ...props }) => {
           <FaCopy />{copied ? 'copied' : 'copy'}
         </p>
       </div>
-      <code className="snip-code t-p">
+      <code className="snip-code t-p ph-2 pv-1">
         {children}
       </code>
     </pre>
