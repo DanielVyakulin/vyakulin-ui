@@ -8,18 +8,9 @@ import clsx from 'clsx';
 import { FaCopy } from 'react-icons/fa6';
 
 const Text = ({ children, text = 'p', className, ...props }) => {
-  const variants = {
-    h1: 't-h1',
-    h2: 't-h2',
-    h3: 't-h3',
-    p: 't-p',
-    sm: 't-sm',
-    btn: 't-btn'
-  };
-
   return (
     <p 
-      className={clsx(variants[text], className)}
+      className={`t-${text} ${className}`}
       {...props}
     >
       {children}
@@ -27,11 +18,15 @@ const Text = ({ children, text = 'p', className, ...props }) => {
   );
 };
 
-const LinkV = ({ children, text = 'p', color = 'wh', href = '#', className, ...props }) => {
+const LinkV = ({ children, text = 'p', color = 'wh', href = '#', background = false, className, ...props }) => {
   return (
     <Link 
       href={href} 
-      className={clsx(`link-${color}`, `gap-1`, `t-${text}`, className)}
+      className={clsx({
+        [`t-${text} gap-1 ${className}`]: true,
+        [`link-bg-${color}`]: background,
+        [`link-${color}`]: !background
+      })}
       {...props}
     >
       {children}
@@ -40,11 +35,13 @@ const LinkV = ({ children, text = 'p', color = 'wh', href = '#', className, ...p
 };
 
 const Button = ({ children, text = 'btn', color = 'wh', outline = false, className, ...props }) => {
-  const buttonClass = outline ? `btn-outline-${color}` : `btn-${color}`;
-  
   return (
     <div 
-      className={clsx(buttonClass, `gap-1 ph-2 ph-1`, `t-${text}`, className)}
+      className={clsx({
+        [`t-${text} pv-1 ph-2 gap-1 ${className}`]: true,
+        [`btn-${color}`]: !outline,
+        [`btn-outline-${color}`]: outline
+      })}
       {...props}
     >
       {children}
@@ -52,15 +49,15 @@ const Button = ({ children, text = 'btn', color = 'wh', outline = false, classNa
   );
 };
 
-const Inp = ({ color = 'wh', outline = false, label, value, onChange, className, text = 'sm', ...props }) => {
-  const inputClass = outline ? `input-outline-${color}` : `input-${color}`;
+const Input = ({ color = 'wh', outline = false, label, className, text = 'sm', ...props }) => {
   return (
-    <div className={clsx('input-container', `t-${text}`, className)}>
+    <div className={`input-container t-${text} ${className}`}>
       <input
         type="text"
-        className={clsx(inputClass, `gap-1`)}
-        value={value}
-        onChange={onChange}
+        className={clsx({
+          [`input-${color} gap-1`]: !outline,
+          [`input-outline-${color} gap-1`]: outline
+        })}
         placeholder=""
         {...props}
       />
@@ -74,7 +71,10 @@ const BreadCrumb = ({ className, text = 'sm', ...props }) => {
   const paths = pathname.split('/').filter(Boolean);
 
   return (
-    <div className={clsx('breadcrumb ch gap-2', `t-${text}`, className)} {...props}>
+    <div 
+      className={`breadcrumb ch gap-2 t-${text} ${className}`}
+      {...props}
+    >
       <LinkV href="/" text={text}>home</LinkV>
       {paths.map((path, index) => (
         <React.Fragment key={path}>
@@ -113,14 +113,14 @@ const Snip = ({ children, className, name, icon, ...props }) => {
   };
 
   return (
-    <pre className={clsx('snip', className)} {...props}>
+    <pre className={`snip ${className}`} {...props}>
       <div className="snip-name ch ph-2 pv-2">
         <Text text="h3" className="snip-name-language ch gap-1">{icon}{name}</Text>
         <p 
-          className="link-wh-ac t-btn snip-name-copy" 
+          className="link-wh-ac t-btn snip-name-copy ch gap-1"
           onClick={handleCopy}
         >
-          <FaCopy />{copied ? 'copied' : 'copy'}
+          <FaCopy />{copied ? 'Copied' : 'Copy'}
         </p>
       </div>
       <code className="snip-code t-p ph-2 pv-1">
@@ -130,4 +130,4 @@ const Snip = ({ children, className, name, icon, ...props }) => {
   );
 }
 
-export { Text, LinkV, Button, Inp, BreadCrumb, Snip }; 
+export { Text, LinkV, Button, Input, BreadCrumb, Snip }; 

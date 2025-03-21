@@ -1,3 +1,4 @@
+@use 'sass:list';
 @use 'variables' as *;
 
 * {
@@ -14,6 +15,32 @@ body {
   overflow-x: hidden;
 }
 
+// Base mixins
+@mixin flex($direction: row) {
+  display: flex;
+  flex-direction: $direction;
+}
+
+@mixin flex-center {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin icon-base($size: 1em) {
+  width: $size;
+  height: $size;
+}
+
+@mixin transition-base {
+  transition: all 0.3s ease;
+}
+
+@mixin outline-base($color, $width: $outline-width, $offset: $outline-offset, $style: solid) {
+  outline: $width $style $color;
+  outline-offset: $offset;
+}
+
 // Typography mixin
 @mixin text-style($size, $line-height, $weight) {
   font-size: $size;
@@ -22,142 +49,149 @@ body {
 }
 
 // Text styles
-.t-h1 { @include text-style($font-size-heading-1, $line-height-heading-1, $font-weight-bold); }
-.t-h2 { @include text-style($font-size-heading-2, $line-height-heading-2, $font-weight-semibold); }
-.t-h3 { @include text-style($font-size-heading-3, $line-height-heading-3, $font-weight-medium); }
-.t-p { @include text-style($font-size-paragraph, $line-height-paragraph, $font-weight-regular); }
-.t-sm { @include text-style($font-size-small, $line-height-small, $font-weight-regular); }
-.t-btn { @include text-style($font-size-button, $line-height-button, $font-weight-semibold); }
+@each $type, $props in (
+  h1: ($font-size-heading-1, $line-height-heading-1, $font-weight-bold),
+  h2: ($font-size-heading-2, $line-height-heading-2, $font-weight-semibold),
+  h3: ($font-size-heading-3, $line-height-heading-3, $font-weight-medium),
+  p: ($font-size-paragraph, $line-height-paragraph, $font-weight-regular),
+  sm: ($font-size-small, $line-height-small, $font-weight-regular),
+  btn: ($font-size-button, $line-height-button, $font-weight-semibold)
+) {
+  .t-#{$type} {
+    @include text-style(list.nth($props, 1), list.nth($props, 2), list.nth($props, 3));
+  }
+}
 
-// Link mixin
-@mixin link-style($color, $hover-color) {
-  color: $color;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
+// Interactive elements base styles
+%interactive-base {
+  @include flex-center;
+  cursor: pointer;
+}
 
+// Button base
+.btn {
+  @extend %interactive-base;
+  border-radius: $vem;
+}
+
+// Mixin for SVG icons
+@mixin svg-style($color) {
   svg {
-    width: 1em;
-    height: 1em;
-
+    @include icon-base;
     path {
       fill: $color;
     }
   }
-  
+}
+
+// Link mixins
+@mixin link-style($color, $hover-color) {
+  @extend %interactive-base;
+  color: $color;
+  @include svg-style($color);
 
   &:hover {
-    color: $hover-color;  
-
-    svg path {
-      fill: $hover-color;
-    }
+    color: $hover-color;
+    @include svg-style($hover-color);
   }
 }
 
-.btn {
-  cursor: pointer;
-  border-radius: $vem;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
+@mixin link-bg-style($color, $text-color, $hover-color, $hover-text-color) {
+  @extend %interactive-base;
+  color: $text-color;
+  background-color: $color;
+  @include svg-style($text-color);
+
+  &:hover {
+    color: $hover-text-color;
+    background-color: $hover-color;
+    @include svg-style($hover-text-color);
+  }
 }
 
-// Button mixin
+// Button mixins
 @mixin button-style($color, $text-color, $hover-color, $hover-text-color) {
   @extend .btn;
   background-color: $color;
   color: $text-color;
+  @include svg-style($text-color);
 
-  svg {
-    width: 1em;
-    height: 1em;
-
-    path {
-      fill: $text-color;
-    }
-  }
-  
   &:hover {
     background-color: $hover-color;
-    color: $hover-text-color; 
-
-    svg path {
-      fill: $hover-text-color;
-    }
+    color: $hover-text-color;
+    @include svg-style($hover-text-color);
   }
 }
 
-// Outline button mixin
 @mixin outline-button-style($color, $text-color, $hover-color, $hover-text-color) {
   @extend .btn;
   background-color: transparent;
   color: $text-color;
-  outline: $outline-width solid $color;
-  outline-offset: $outline-offset;
+  @include outline-base($color);
+  @include svg-style($text-color);
 
-  svg {
-    width: 1em;
-    height: 1em;
+  &:hover {
+    background-color: $hover-color;
+    color: $hover-text-color;
+    @include outline-base($hover-color);
+    @include svg-style($hover-text-color);
+  }
+}
 
-    path {
-      fill: $text-color;
-    }
+// Generate interactive element styles
+$colors: (
+  wh: ($wh, $bl, $wh-hover, $bl-hover),
+  wh-ac: ($wh, $bl, $ac, $bl),
+  bl: ($bl, $wh, $bl-hover, $wh-hover),
+  bl-ac: ($bl, $wh, $ac, $bl),
+  ac: ($ac, $bl, $ac-hover, $bl-hover)
+);
+
+@each $name, $values in $colors {
+  // Link styles
+  .link-#{$name} {
+    @include link-style(list.nth($values, 1), list.nth($values, 3));
   }
   
-  &:hover {
-    background-color: $hover-color;
-    color: $hover-text-color;
-    outline-color: $hover-color;
-
-    svg path {
-      fill: $hover-text-color;
-    }
+  // Link background styles
+  .link-bg-#{$name} {
+    @include link-bg-style(list.nth($values, 1), list.nth($values, 2), list.nth($values, 3), list.nth($values, 4));
+  }
+  
+  // Button styles
+  .btn-#{$name} {
+    @include button-style(list.nth($values, 1), list.nth($values, 2), list.nth($values, 3), list.nth($values, 4));
+  }
+  
+  // Outline button styles
+  .btn-outline-#{$name} {
+    @include outline-button-style(list.nth($values, 1), list.nth($values, 1), list.nth($values, 1), list.nth($values, 2));
   }
 }
 
-// Link styles
-.link-wh { @include link-style($wh, $wh-hover); }
-.link-wh-ac { @include link-style($wh, $ac); }
-.link-bl { @include link-style($bl, $bl-hover); }
-.link-bl-ac { @include link-style($bl, $ac); }
-.link-ac { @include link-style($ac, $ac-hover); }
-
-// Button styles
-.btn-wh { @include button-style($wh, $bl, $wh-hover, $bl-hover); }
-.btn-wh-ac { @include button-style($wh, $bl, $ac, $bl); }
-.btn-bl { @include button-style($bl, $wh, $bl-hover, $wh-hover); }
-.btn-bl-ac { @include button-style($bl, $wh, $ac, $bl); }
-.btn-ac { @include button-style($ac, $bl, $ac-hover, $bl-hover); }
-
-// Outline button styles
-.btn-outline-wh { @include outline-button-style($wh, $wh, $wh, $bl); }
-.btn-outline-wh-ac { @include outline-button-style($wh, $wh, $ac, $bl); }
-.btn-outline-bl { @include outline-button-style($bl, $bl, $bl, $wh); }
-.btn-outline-bl-ac { @include outline-button-style($bl, $bl, $ac, $bl); }
-.btn-outline-ac { @include outline-button-style($ac, $ac, $ac, $bl); }
-
-
+// Input styles
 .text-input {
+  @include flex-center;
   padding: $vem * 2 $vem * 2 $vem;
   border-radius: $vem;
-  display: inline-flex;
-  align-items: center;
 }
 
-// Text input mixin
-@mixin text-input-style($color, $text-color, $hover-color, $hover-text-color) {
-  background-color: $color;
-  color: $text-color;
+@mixin text-input-base {
   @extend .text-input;
+  width: 100%;
+  position: relative;
   outline: none;
   border: none;
-  width: 100%;
-  position: relative;
 
   &::placeholder {
     color: transparent;
   }
+}
+
+@mixin text-input-style($color, $text-color, $hover-color, $hover-text-color) {
+  @include text-input-base;
+  background-color: $color;
+  color: $text-color;
 
   &:hover {
     background-color: $hover-color;
@@ -170,38 +204,31 @@ body {
   }
 }
 
-// Outline text input mixin
 @mixin outline-text-input-style($color, $text-color, $hover-color, $hover-text-color) {
+  @include text-input-base;
   background-color: transparent;
   color: $text-color;
-  @extend .text-input;
-  border: $outline-width solid $color;
-  width: 100%;
-  position: relative;
-
-  &::placeholder {
-    color: transparent;
-  }
+  @include outline-base($color, $outline-width);
 
   &:hover {
     background-color: $hover-color;
     color: $hover-text-color;
-    border-color: $hover-color;
+    @include outline-base($hover-color);
   }
 
   &:focus {
     background-color: $ac;
     color: $bl;
-    border-color: $ac;
-    outline: none;
+    @include outline-base($ac);
   }
 }
 
-// Text input container
+// Input container and label
 .input-container {
   position: relative;
   width: 100%;
   margin-top: $vem * 3;
+
   input {
     font-family: inherit;
     font-size: inherit;
@@ -210,7 +237,6 @@ body {
   }
 }
 
-// Text input label
 .input-label {
   position: absolute;
   left: $vem;
@@ -218,12 +244,12 @@ body {
   transform: translateY(-50%);
   color: inherit;
   pointer-events: none;
-  transition: all 0.3s ease;
+  @include transition-base;
 }
 
 // Input label states mixin
 @mixin input-label-states($color, $hover-color, $focus-color, $filled-color) {
-  ~ .input-label {
+  & ~ .input-label {
     color: $color;
   }
 
@@ -244,41 +270,42 @@ body {
   }
 }
 
-// Input label states
-.input-wh { @include input-label-states($bl, $bl-hover, $ac, $wh); }
-.input-bl { @include input-label-states($wh, $wh-hover, $ac, $bl); }
-.input-outline-wh { @include input-label-states($wh, $bl, $ac, $wh); }
-.input-outline-bl { @include input-label-states($bl, $wh, $ac, $bl); }
+// Input styles generation
+@each $name, $values in (
+  wh: ($wh, $bl, $wh-hover, $bl-hover),
+  bl: ($bl, $wh, $bl-hover, $wh-hover)
+) {
+  .input-#{$name} {
+    @include text-input-style(list.nth($values, 1), list.nth($values, 2), list.nth($values, 3), list.nth($values, 4));
+    @include input-label-states(list.nth($values, 2), list.nth($values, 4), $ac, list.nth($values, 1));
+  }
+  
+  .input-outline-#{$name} {
+    @include outline-text-input-style(list.nth($values, 1), list.nth($values, 1), list.nth($values, 1), list.nth($values, 2));
+    @include input-label-states(list.nth($values, 1), list.nth($values, 2), $ac, list.nth($values, 1));
+  }
+}
 
-// Text input styles
-.input-wh { @include text-input-style($wh, $bl, $wh-hover, $bl-hover); }
-.input-bl { @include text-input-style($bl, $wh, $bl-hover, $wh-hover); }
-.input-outline-wh { @include outline-text-input-style($wh, $wh, $wh, $bl); }
-.input-outline-bl { @include outline-text-input-style($bl, $bl, $bl, $wh); }
-
+// Layout components
 .header {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   z-index: 100;
-  padding-left: $media-width;
-  padding-right: $media-width;
+  padding: $vem * 4 $media-width 0;
 
   &-container {
     margin: 0 auto;
     background-color: $bl;
-    outline: 1px solid $wh;
-    outline-offset: -1px;
-    border-radius: $vem*6;
+    @include outline-base($wh, 1px, -1px);
+    border-radius: $vem * 6;
+    @include flex;
     justify-content: space-between;
     align-items: center;
   }
 
-  &-nav {
-    align-items: center;
-  }
-
+  &-nav,
   &-logos {
     align-items: center;
   }
@@ -286,10 +313,12 @@ body {
 
 .all {
   margin-top: $vem * 20;
-  padding-left: $media-width;
-  padding-right: $media-width;
+  padding: 0 $media-width;
+  display: flex;
+  flex-direction: column;
 }
 
+// Components
 .breadcrumb {
   align-items: center;
 }
@@ -301,18 +330,18 @@ body {
   min-width: 250px;
 
   &-name {
+    @include flex;
     justify-content: space-between;
     align-items: center;
     background-color: $bl-hover;
-    border-top-left-radius: $vem * 2;
-    border-top-right-radius: $vem * 2;
+    border-radius: $vem * 2 $vem * 2 0 0;
 
-    &-language {
+    &-language,
+    &-copy {
       align-items: center;
     }
 
     &-copy {
-      align-items: center;
       cursor: pointer;
     }
   }
@@ -329,45 +358,51 @@ body {
   align-items: center;
   &-icon {
     svg {
-      width: $vem * 12;
-      height: $vem * 12;
+      @include icon-base($vem * 12);
+      path {
+        fill: $wh;
+      }
     }
-    path {
-      fill: $wh;
+  }
+}
+
+// Utility classes
+.ch { @include flex(row); }
+.cv { @include flex(column); }
+
+// Generate spacing classes
+@each $type, $property in (
+  gap: gap,
+  ph: (padding-left, padding-right),
+  pv: (padding-top, padding-bottom)
+) {
+  @for $i from 1 through 12 {
+    .#{$type}-#{$i} {
+      @if type-of($property) == list {
+        @each $prop in $property {
+          #{$prop}: $vem * $i;
+        }
+      } @else {
+        #{$property}: $vem * $i;
+      }
     }
   }
 }
 
-// Flexbox direction classes
-.ch {
-  display: flex;
-  flex-direction: row;
-}
+.docs-nav {
+  width: 240px;
 
-.cv {
-  display: flex;
-  flex-direction: column;
-}
-
-// Gap classes
-@for $i from 1 through 12 {
-  .gap-#{$i} {
-    gap: $vem * $i;
+  &-items {
+    @include outline-base($wh);
+    border-radius: $vem * 2;
   }
-}
 
-// Padding horizontal classes
-@for $i from 1 through 12 {
-  .ph-#{$i} {
-    padding-right: $vem * $i;
-    padding-left: $vem * $i;
-  }
-}
+  &-item {
+    width: 100%;
+    justify-content: flex-start;
 
-// Padding vertical classes
-@for $i from 1 through 12 {
-  .pv-#{$i} {
-    padding-top: $vem * $i;
-    padding-bottom: $vem * $i;
+    &-list {
+      background-color: $bl-hover;
+    }    
   }
 }

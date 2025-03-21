@@ -1,5 +1,6 @@
 'use client';
 import './style.scss';
+import React from 'react';
 import { FaAlignCenter, FaFeatherPointed, FaPalette, FaSass } from 'react-icons/fa6';
 import { Snip, Text } from './components/elements';
 import { SiGnubash, SiNextdotjs } from "react-icons/si";
@@ -7,7 +8,7 @@ import Feature from './components/feature';
 
 export default function Home() {
   return (
-    <main className="all">
+    <React.Fragment>
       <div className="text-blocks ch gap-10">
         <div className="quick-start cv gap-10">
           <div className="welcome cv gap-6">
@@ -26,14 +27,29 @@ export default function Home() {
         <div className="key-features cv gap-6">
           <Text text="h1">Key Features</Text>
           <div className="features cv gap-5">
-            <Feature title="Next.js 15 + Turbopack" icon={<SiNextdotjs />}>Optimized for performance with the latest Next.js features.</Feature>
-            <Feature title="SCSS Support" icon={<FaSass />}>Leverage variables, mixins, and modular styles for seamless customization.</Feature>
-            <Feature title="Responsive Design" icon={<FaAlignCenter />}>Components adapt flawlessly to all screen sizes.</Feature>
-            <Feature title="Lightweight" icon={<FaFeatherPointed />}>Minimal footprint ensures fast load times.</Feature>
-            <Feature title="Themeable" icon={<FaPalette />}>Customize colors, typography, and spacing via SCSS variables.</Feature>
+            <Feature icon={<SiNextdotjs />}>
+              <Feature.Title>Next.js 15 + Turbopack</Feature.Title>
+              <Feature.Description>Optimized for performance with the latest Next.js features.</Feature.Description>
+            </Feature>
+            <Feature icon={<FaSass />}>
+              <Feature.Title>SCSS Support</Feature.Title>
+              <Feature.Description>Leverage variables, mixins, and modular styles for seamless customization.</Feature.Description>
+            </Feature>
+            <Feature icon={<FaAlignCenter />}>
+              <Feature.Title>Responsive Design</Feature.Title>
+              <Feature.Description>Components adapt flawlessly to all screen sizes.</Feature.Description>
+            </Feature>
+            <Feature icon={<FaFeatherPointed />}>
+              <Feature.Title>Lightweight</Feature.Title>
+              <Feature.Description>Minimal footprint ensures fast load times.</Feature.Description>
+            </Feature>
+            <Feature icon={<FaPalette />}>
+              <Feature.Title>Themeable</Feature.Title>
+              <Feature.Description>Customize colors, typography, and spacing via SCSS variables.</Feature.Description>
+            </Feature>
           </div>
         </div>
       </div>
-    </main>
+    </React.Fragment>
   );
 } 
