@@ -1,5 +1,11 @@
-import React from 'react';
+'use client'
+
+import React, { useState } from 'react';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
+import clsx from 'clsx';
+
+import { FaCopy } from 'react-icons/fa6';
 
 const Text = ({ children, text = 'p', className, ...props }) => {
   const variants = {
@@ -13,7 +19,7 @@ const Text = ({ children, text = 'p', className, ...props }) => {
 
   return (
     <p 
-      className={`${variants[text]} ${className}`}
+      className={clsx(variants[text], className)}
       {...props}
     >
       {children}
@@ -25,7 +31,7 @@ const LinkV = ({ children, text = 'p', color = 'wh', href = '#', className, ...p
   return (
     <Link 
       href={href} 
-      className={`link-${color} t-${text} ${className}`}
+      className={clsx(`link-${color}`, `t-${text}`, className)}
       {...props}
     >
       {children}
@@ -38,7 +44,7 @@ const Button = ({ children, text = 'btn', color = 'wh', outline = false, classNa
   
   return (
     <div 
-      className={`${buttonClass} t-${text} ${className}`}
+      className={clsx(buttonClass, `t-${text}`, className)}
       {...props}
     >
       {children}
@@ -49,10 +55,10 @@ const Button = ({ children, text = 'btn', color = 'wh', outline = false, classNa
 const Inp = ({ color = 'wh', outline = false, label, value, onChange, className, text = 'sm', ...props }) => {
   const inputClass = outline ? `input-outline-${color}` : `input-${color}`;
   return (
-    <div className={`input-container t-${text} ${className}`}>
+    <div className={clsx('input-container', `t-${text}`, className)}>
       <input
         type="text"
-        className={inputClass}
+        className={clsx(inputClass)}
         value={value}
         onChange={onChange}
         placeholder=""
@@ -63,4 +69,65 @@ const Inp = ({ color = 'wh', outline = false, label, value, onChange, className,
   );
 }
 
-export { Text, LinkV, Button, Inp }; 
+const BreadCrumb = ({ className, text = 'sm', ...props }) => {
+  const pathname = usePathname();
+  const paths = pathname.split('/').filter(Boolean);
+
+  return (
+    <div className={clsx('breadcrumb', `t-${text}`, className)} {...props}>
+      <LinkV href="/" text={text}>home</LinkV>
+      {paths.map((path, index) => (
+        <React.Fragment key={path}>
+          <span className="breadcrumb-separator">&gt;</span>
+          {index === paths.length - 1 ? (
+            <LinkV text={text} color="ac">{path.charAt(0) + path.slice(1)}</LinkV>
+          ) : (
+            <LinkV 
+              href={`/${paths.slice(0, index + 1).join('/')}`}
+              text={text}
+            >
+              {path.charAt(0) + path.slice(1)}
+            </LinkV>
+          )}
+        </React.Fragment>
+      ))}
+    </div>
+  );
+}
+
+const Snip = ({ children, className, name, icon, ...props }) => {
+  const [copied, setCopied] = useState(false);
+
+  const handleCopy = () => {
+    const textToCopy = typeof children === 'string' 
+      ? children 
+      : Array.isArray(children) 
+        ? children.map(child => typeof child === 'string' ? child : '').join('')
+        : '';
+    
+    navigator.clipboard.writeText(textToCopy);
+    setCopied(true);
+    setTimeout(() => {
+      setCopied(false);
+    }, 2000);
+  };
+
+  return (
+    <pre className={clsx('snip', className)} {...props}>
+      <div className="snip-name">
+        <Text text="h3" className="snip-name-language">{icon}{name}</Text>
+        <p 
+          className="link-wh-ac t-btn snip-name-copy" 
+          onClick={handleCopy}
+        >
+          <FaCopy />{copied ? 'copied' : 'copy'}
+        </p>
+      </div>
+      <code className="snip-code t-p">
+        {children}
+      </code>
+    </pre>
+  );
+}
+
+export { Text, LinkV, Button, Inp, BreadCrumb, Snip }; 

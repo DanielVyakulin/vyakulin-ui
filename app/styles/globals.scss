@@ -1,4 +1,4 @@
-@import './variables.scss';
+@use 'variables' as *;
 
 * {
   box-sizing: border-box;
@@ -27,7 +27,7 @@ body {
 .t-h3 { @include text-style($font-size-heading-3, $line-height-heading-3, $font-weight-medium); }
 .t-p { @include text-style($font-size-paragraph, $line-height-paragraph, $font-weight-regular); }
 .t-sm { @include text-style($font-size-small, $line-height-small, $font-weight-regular); }
-.t-btn { @include text-style($font-size-button, $line-height-button, $font-weight-medium); }
+.t-btn { @include text-style($font-size-button, $line-height-button, $font-weight-semibold); }
 
 // Link mixin
 @mixin link-style($color, $hover-color) {
@@ -268,7 +268,7 @@ body {
   left: 0;
   width: 100%;
   z-index: 100;
-  padding: ($vem * 6) $media-width 0px;
+  padding: ($vem * 4) $media-width 0px;
 
   &-container {
     margin: 0 auto;
@@ -292,5 +292,55 @@ body {
     display: flex;
     gap: $vem * 4;
     align-items: center;
+  }
+}
+
+.all  {
+  margin-top: $vem * 20;
+  padding: 0 $media-width;
+}
+
+.breadcrumb {
+  display: inline-flex;
+  gap: $vem * 2;
+  align-items: center;
+}
+
+.snip {
+  display: inline-flex;
+  flex-direction: column;
+  background-color: $bl;
+  border: 1px solid $wh;
+  border-radius: $vem * 2;
+  min-width: 250px;
+
+  &-name {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: $bl-hover;
+    padding: $vem * 2;
+    border-top-left-radius: $vem * 2;
+    border-top-right-radius: $vem * 2;
+
+    &-language {
+      display: flex;
+      align-items: center;
+      gap: $vem;
+    }
+
+    &-copy {
+      display: flex;
+      align-items: center;
+      gap: $vem;
+      cursor: pointer;
+    }
+  }
+
+  &-code {
+    padding: $vem $vem * 2;
+    span {
+      color: $info;
+    }
   }
 }
