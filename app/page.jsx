@@ -12,7 +12,7 @@ export default function Home() {
       <div className="text-blocks ch gap-10">
         <div className="quick-start cv gap-10">
           <div className="welcome cv gap-6">
-            <Text text="h1">Welcome to Vyakulin UI</Text>
+            <Text text="h1">Welcome to Vyakulin-UI</Text>
             <Text text="p">It is a modern, lightweight component library designed for React applications using Next.js 15 and React 19. Built with developer experience in mind, it offers a responsive, customizable, and easy-to-use set of components powered by SCSS styling and React Icons.</Text>
           </div>
           <div className="installation cv gap-6">
