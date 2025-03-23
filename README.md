@@ -1,100 +1,98 @@
 # Vyakulin UI
 
-A modern React component library with a clean and elegant design system. This project consists of two main parts: a component library package and a demo application showcasing the components.
+A modern and elegant React component library built with Next.js 15, featuring a clean design system and seamless integration capabilities.
 
-## 🚀 Features
+## 🌟 Key Features
 
-- Modern React components with TypeScript support
-- Clean and minimalist design
-- Fully responsive components
-- Built with Next.js 15
-- SASS support for styling
-- React Icons integration
-- Optimized bundle size
+- **Modern Stack**: Built with Next.js 15 and React 19
+- **Performance**: Optimized with Turbopack for faster development
+- **Styling**: SASS integration for advanced styling capabilities
+- **Icons**: Comprehensive icon set via React Icons
+- **Responsive**: Fully responsive component design
+- **Type Safety**: Built with JavaScript and JSConfig support
+- **Utility-First**: Integration with clsx for dynamic class names
 
-## 📦 Project Structure
-
-The project is split into two main directories:
-
-- `vyakulin-ui/` - Demo application showcasing the components
-- `vyakulin-ui-package/` - The actual component library package
-
-## 🛠️ Getting Started
+## 🚀 Quick Start
 
 ### Prerequisites
 
-- Node.js (v16 or higher)
-- npm or yarn
+- Node.js (Latest LTS version recommended)
+- npm
 
 ### Installation
 
-1. Clone the repository:
 ```bash
-git clone https://github.com/yourusername/vyakulin-ui.git
+# Clone the repository
+git clone https://github.com/DanielVyakulin/vyakulin-ui.git
+
+# Navigate to project directory
 cd vyakulin-ui
-```
 
-2. Install dependencies:
-```bash
+# Install dependencies
 npm install
-# or
-yarn install
-```
 
-3. Start the development server:
-```bash
+# Start development server
 npm run dev
-# or
-yarn dev
 ```
 
-The application will be available at `http://localhost:3000`
+The development server will be available at `http://localhost:3000`
 
-## 📚 Available Scripts
+## 📁 Project Structure
+
+```
+vyakulin-ui/
+├── app/
+│   ├── components/    # React components
+│   ├── docs/          # Documentation
+│   ├── styles/        # SASS styles
+│   ├── layout.jsx     # App layout
+│   └── page.jsx       # Main page
+├── public/            # Static assets
+└── package.json       # Project dependencies
+```
+
+## 🛠️ Available Scripts
 
 - `npm run dev` - Start development server with Turbopack
-- `npm run build` - Build the application
-- `npm run start` - Start production server
-- `npm run lint` - Run ESLint
+- `npm run build` - Create production build
+- `npm run start` - Run production server
+- `npm run lint` - Run code linting
 
-## 🔧 Built With
+## 💻 Technology Stack
 
-- [Next.js](https://nextjs.org/) - React framework
-- [React](https://reactjs.org/) - UI library
-- [SASS](https://sass-lang.com/) - CSS preprocessor
-- [React Icons](https://react-icons.github.io/react-icons/) - Icon library
-- [clsx](https://github.com/lukeed/clsx) - Utility for constructing className strings
+- **Framework**: Next.js 15.2.3
+- **UI Library**: React 19.0.0
+- **Styling**: SASS 1.86.0
+- **Icons**: React Icons 5.5.0
+- **Utilities**: clsx 2.1.1
 
-## 📦 Component Library Package
+## 🔧 Components
 
-The `vyakulin-ui-package` directory contains the actual component library that can be published to npm. It includes:
+The library includes several core components:
 
-- TypeScript support
-- Rollup configuration for bundling
-- Multiple output formats (ESM, UMD, CommonJS)
-- Type definitions
-- SASS styles
+- **Blocks**: Structural layout components
+- **Elements**: Basic UI elements and controls
+- **Features**: Advanced feature components
+- **DocsNav**: Documentation navigation system
 
-### Building the Package
+## 📦 Installation as a Package
 
 ```bash
-cd vyakulin-ui-package
-npm install
-npm run build
+npm install vyakulin-ui
 ```
 
 ## 🤝 Contributing
 
-Contributions are welcome! Please feel free to submit a Pull Request.
+Contributions are always welcome! Please feel free to submit issues and pull requests.
 
 ## 📄 License
 
-This project is licensed under the MIT License - see the LICENSE file for details.
+This project is licensed under the MIT License.
 
 ## 👤 Author
 
-Vyakulin
+Created and maintained by Vyakulin
 
 ---
 
-Made with ❤️ using Next.js and React 
+<p align="center">Made with ❤️ using Next.js and React</p> 

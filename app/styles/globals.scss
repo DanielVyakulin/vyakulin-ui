@@ -223,6 +223,26 @@ $colors: (
   }
 }
 
+@mixin line-text-input-style($color, $text-color, $hover-color, $hover-text-color) {
+  @include text-input-base;
+  background-color: transparent;
+  color: $text-color;
+  border-bottom: 1px solid $color;
+  padding: $vem !important;
+
+  &:hover {
+    background-color: $hover-color;
+    color: $hover-text-color;
+    border-bottom: 1px solid $hover-color;
+  }
+
+  &:focus {
+    background-color: $ac;
+    color: $bl;
+    border-bottom: 1px solid $ac;
+  }
+}
+
 // Input container and label
 .input-container {
   position: relative;
@@ -282,6 +302,11 @@ $colors: (
   
   .input-outline-#{$name} {
     @include outline-text-input-style(list.nth($values, 1), list.nth($values, 1), list.nth($values, 1), list.nth($values, 2));
+    @include input-label-states(list.nth($values, 1), list.nth($values, 2), $ac, list.nth($values, 1));
+  }
+
+  .input-line-#{$name} {
+    @include line-text-input-style(list.nth($values, 1), list.nth($values, 1), list.nth($values, 1), list.nth($values, 2));
     @include input-label-states(list.nth($values, 1), list.nth($values, 2), $ac, list.nth($values, 1));
   }
 }

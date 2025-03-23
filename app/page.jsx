@@ -17,11 +17,21 @@ export default function Home() {
           </div>
           <div className="installation cv gap-6">
             <Text text="h1">Installation</Text>
-            <Snip name="bash" icon={<SiGnubash />}>
-              npm install vyakulin-ui <br />
-              <span># or</span> <br />
-              pnpm add vyakulin-ui
-            </Snip>
+            <div className="cv gap-4">
+              <Text text="h2">Package</Text>
+              <Snip name="bash" icon={<SiGnubash />}>
+                npm install vyakulin-ui
+              </Snip>
+            </div>
+            <div className="cv gap-4">
+              <Text text="h2">Development</Text>
+              <Snip name="bash" icon={<SiGnubash />}>
+                git clone https://github.com/DanielVyakulin/vyakulin-ui.git <br />
+                cd vyakulin-ui <br />
+                npm install <br />
+                npm run dev
+              </Snip>
+            </div>
           </div>
         </div>
         <div className="key-features cv gap-6">
