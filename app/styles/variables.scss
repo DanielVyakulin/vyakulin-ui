@@ -5,9 +5,9 @@ $font-family: var(--font-montserrat);
 $ac: #00FFBF;
 $ac-hover: #30BF9A;
 $wh: #E5E5E5;
-$wh-hover: #A6A6A6;
+$wh-hover: #B2B2B2;
 $bl: #000000;
-$bl-hover: #404040;
+$bl-hover: #333333;
 
 // Status Colors
 $error: #D92121;
@@ -60,6 +60,14 @@ $media-width: $vem * 52;
   $media-width: $vem * 52;
 }
 
-// @media screen and (min-width: ) and (max-width: 1499px) {
-  
-// }
+@media screen and (min-width: 768px) and (max-width: 1449px) {
+  $media-width: $vem * 26;
+}
+
+@media screen and (min-width: 576px) and (max-width: 767px) {
+  $media-width: $vem * 13;
+}
+
+@media screen and (min-width: 360px) and (max-width: 575px) {
+  $media-width: $vem * 4;
+}
