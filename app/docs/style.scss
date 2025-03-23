@@ -14,19 +14,46 @@ body {
   width: 240px;
   position: fixed;
 
-  &-items {
-    outline: 1px solid $wh;
-    outline-offset: -1px;
-    border-radius: $vem * 2;
-  }
-
-  &-item {
+  &-list {
     width: 100%;
-    justify-content: flex-start;
+    padding-bottom: $vem * 1;
+    border-bottom: 1px solid $wh-hover;
 
-    &-list {
-      background-color: $bl-hover;
-    }    
+    &-items {
+      display: grid; 
+      grid-template-rows: 0fr;
+
+      div {
+        overflow: hidden;
+        padding-left: $vem * 2;
+      }
+    }
+
+    &-title {
+      width: 100%;
+      justify-content: space-between;
+      cursor: pointer;
+    }
+
+    &-item {
+      width: 100%;
+      justify-content: flex-start;
+    }
+
+    &-open &-title {
+      margin-bottom: $vem * 3;
+      color: $ac;
+      &:hover {
+        color: $ac-hover;
+      }
+      svg {
+        transform: rotate(90deg);
+      }
+    }
+
+    &-open &-items {
+      grid-template-rows: 1fr;
+    }
   }
 }
 

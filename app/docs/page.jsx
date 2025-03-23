@@ -1,6 +1,7 @@
 import React from 'react';
 import Section from '@/components/docs/section';
 import DocsLayout from '@/components/docs/layout';
+
 export default function Docs() {
 
   const pageNavItems = [
@@ -13,13 +14,13 @@ export default function Docs() {
       <Section anchor="intro">
         <Section.Title>Introduction</Section.Title>
         <Section.Description>
-          Welcome to Vyakulin-ui documentation!
+          Welcome to Vyakulin-UI documentation!
         </Section.Description>
       </Section>
       <Section anchor="what">
-        <Section.Title>What is Vyakulin-ui</Section.Title>
+        <Section.Title>What is Vyakulin-UI</Section.Title>
         <Section.Description>
-        Vyakulin UI is a modern and elegant component library designed for  Next.js 15 and React 19 applications. It provides a clean design system  with:
+        Vyakulin-UI is a modern and elegant component library designed for  Next.js 15 and React 19 applications. It provides a clean design system  with:
           <ul>
             <li>Modern stack with Next.js 15 and React 19</li>
             <li>Turbopack optimization for blazing-fast performance</li>

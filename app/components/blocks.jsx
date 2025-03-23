@@ -27,7 +27,7 @@ export function Logo() {
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M12.25 20.25H9H2L9 15H12.25L9 3.5L22 11.25L12.25 20.25Z" fill="#E6E6E6"/>
       </svg>
-      Vyakulin UI
+      Vyakulin-UI
     </LinkV>
   );
 } 
