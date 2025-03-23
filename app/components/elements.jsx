@@ -9,12 +9,12 @@ import { FaCopy } from 'react-icons/fa6';
 
 const Text = ({ children, text = 'p', className, ...props }) => {
   return (
-    <p 
+    <div 
       className={`t-${text} ${className}`}
       {...props}
     >
       {children}
-    </p>
+    </div>
   );
 };
 

@@ -1,6 +1,56 @@
 @use '../styles/variables' as *;
 
-.all {
+body {
   flex-direction: row;
   gap: $vem * 10;
+}
+
+.main {
+  width: 100%;
+  padding: 0 280px;
+}
+
+.docs-nav {
+  width: 240px;
+  position: fixed;
+
+  &-items {
+    outline: 1px solid $wh;
+    outline-offset: -1px;
+    border-radius: $vem * 2;
+  }
+
+  &-item {
+    width: 100%;
+    justify-content: flex-start;
+
+    &-list {
+      background-color: $bl-hover;
+    }    
+  }
+}
+
+.nav {
+  width: 240px;
+  align-items: flex-start;
+  position: fixed;
+  right: $media-width;
+
+  &-list {
+    align-items: flex-start;
+    padding-bottom: $vem * 3;
+    border-bottom: 1px solid $wh-hover;
+    width: 100%;
+  }
+}
+
+.section {
+  padding-bottom: $vem * 6;
+  border-bottom: 1px solid $wh-hover;
+
+  &-description {
+    ul {
+      padding-left: $vem * 8;
+    }
+  }
 }

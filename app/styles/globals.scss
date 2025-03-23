@@ -13,6 +13,7 @@ html,
 body {
   max-width: 100vw;
   overflow-x: hidden;
+  scroll-behavior: smooth;
 }
 
 // Base mixins
@@ -144,7 +145,10 @@ $colors: (
   wh-ac: ($wh, $bl, $ac, $bl),
   bl: ($bl, $wh, $bl-hover, $wh-hover),
   bl-ac: ($bl, $wh, $ac, $bl),
-  ac: ($ac, $bl, $ac-hover, $bl-hover)
+  ac: ($ac, $bl, $ac-hover, $bl-hover),
+  wh-hover: ($wh-hover, $bl-hover, $wh, $bl),
+  bl-hover: ($bl-hover, $wh-hover, $bl, $wh),
+  ac-hover: ($ac-hover, $bl-hover, $ac, $bl)
 );
 
 @each $name, $values in $colors {
@@ -311,39 +315,40 @@ $colors: (
   }
 }
 
-// Layout components
-.header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 100;
-  padding: $vem * 4 $media-width 0;
-
-  &-container {
-    margin: 0 auto;
-    background-color: $bl;
-    @include outline-base($wh, 1px, -1px);
-    border-radius: $vem * 6;
-    @include flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-
-  &-nav,
-  &-logos {
-    align-items: center;
-  }
-}
-
-.all {
+body {
   margin-top: $vem * 20;
   padding: 0 $media-width;
   display: flex;
   flex-direction: column;
 }
 
-// Components
+.anchor {
+  scroll-margin-top: $vem * 20;
+}
+
+// Utility classes
+.ch { @include flex(row); }
+.cv { @include flex(column); }
+
+// Generate spacing classes
+@each $type, $property in (
+  gap: gap,
+  ph: (padding-left, padding-right),
+  pv: (padding-top, padding-bottom)
+) {
+  @for $i from 1 through 12 {
+    .#{$type}-#{$i} {
+      @if type-of($property) == list {
+        @each $prop in $property {
+          #{$prop}: $vem * $i;
+        }
+      } @else {
+        #{$property}: $vem * $i;
+      }
+    }
+  }
+}
+
 .breadcrumb {
   align-items: center;
 }
@@ -379,6 +384,30 @@ $colors: (
   }
 }
 
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+  padding: $vem * 4 $media-width 0;
+
+  &-container {
+    margin: 0 auto;
+    background-color: $bl;
+    @include outline-base($wh, 1px, -1px);
+    border-radius: $vem * 6;
+    @include flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &-nav,
+  &-logos {
+    align-items: center;
+  }
+}
+
 .feature {
   align-items: center;
   &-icon {
@@ -388,46 +417,5 @@ $colors: (
         fill: $wh;
       }
     }
-  }
-}
-
-// Utility classes
-.ch { @include flex(row); }
-.cv { @include flex(column); }
-
-// Generate spacing classes
-@each $type, $property in (
-  gap: gap,
-  ph: (padding-left, padding-right),
-  pv: (padding-top, padding-bottom)
-) {
-  @for $i from 1 through 12 {
-    .#{$type}-#{$i} {
-      @if type-of($property) == list {
-        @each $prop in $property {
-          #{$prop}: $vem * $i;
-        }
-      } @else {
-        #{$property}: $vem * $i;
-      }
-    }
-  }
-}
-
-.docs-nav {
-  width: 240px;
-
-  &-items {
-    @include outline-base($wh);
-    border-radius: $vem * 2;
-  }
-
-  &-item {
-    width: 100%;
-    justify-content: flex-start;
-
-    &-list {
-      background-color: $bl-hover;
-    }    
   }
 }
