@@ -419,3 +419,49 @@ body {
     }
   }
 }
+
+// Accordion mixins
+@mixin accordion-styles($color) {
+  padding-bottom: $vem * 1;
+  border-bottom: 1px solid $color;
+
+  .accordion-title {
+    width: 100%;
+    justify-content: space-between;
+    cursor: pointer;
+  }
+  .accordion-item {
+    width: 100%;
+    justify-content: flex-start;
+  }
+  .accordion-items {
+    display: grid; 
+    grid-template-rows: 0fr;
+
+    div {
+      overflow: hidden;
+    }
+  }
+  .accordion-open .accordion-title {
+    margin-bottom: $vem * 3;
+    color: $ac;
+    &:hover {
+      color: $ac-hover;
+    }
+    svg {
+      transform: rotate(90deg);
+    }
+  }
+  .accordion-open .accordion-items {
+    grid-template-rows: 1fr;
+  }
+}
+
+// Generate accordion styles for all colors except accent
+@each $name, $values in $colors {
+  @if $name != 'ac' {
+    .accordion-#{$name} {
+      @include accordion-styles(list.nth($values, 1));
+    }
+  }
+}

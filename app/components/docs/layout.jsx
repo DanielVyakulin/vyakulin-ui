@@ -1,3 +1,5 @@
+'use client';
+
 import DocsNav from "@/components/docs/docsnav";
 import React from 'react';
 import '@/docs/style.scss';
@@ -7,11 +9,17 @@ export default function DocsLayout({ children, navItems = [] }) {
   return (
     <React.Fragment>
       <DocsNav>
-        <DocsNav.Item href="/docs/variables">variables</DocsNav.Item>
-        <DocsNav.List>Base:</DocsNav.List>
-        <DocsNav.Item href="/docs/text">text</DocsNav.Item>
-        <DocsNav.Item href="/docs/link">link</DocsNav.Item>
-        <DocsNav.Item href="/docs/button">button</DocsNav.Item>
+      <DocsNav.Item href="/docs/variables">Variables</DocsNav.Item>
+        <DocsNav.List title="Base">
+          <DocsNav.Item href="/docs/text">Text</DocsNav.Item>
+          <DocsNav.Item href="/docs/link">Link</DocsNav.Item>
+          <DocsNav.Item href="/docs/button">Button</DocsNav.Item>
+        </DocsNav.List>
+        <DocsNav.List title="Input">
+          <DocsNav.Item href="/docs/input-text">Text</DocsNav.Item>
+          <DocsNav.Item href="/docs/input-radio">Radio</DocsNav.Item>
+          <DocsNav.Item href="/docs/input-checkbox">Checkbox</DocsNav.Item>
+        </DocsNav.List>
       </DocsNav>
       <div className="main cv gap-10">
         {children}

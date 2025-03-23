@@ -12,6 +12,10 @@ A modern and elegant React component library built with Next.js 15, featuring a 
 - **Type Safety**: Built with JavaScript and JSConfig support
 - **Utility-First**: Integration with clsx for dynamic class names
 
+## 📝 Changelog
+
+See the [CHANGELOG.md](CHANGELOG.md) file for a list of all changes and version history.
+
 ## 🚀 Quick Start
 
 ### Prerequisites

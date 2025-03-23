@@ -130,4 +130,28 @@ const Snip = ({ children, className, name, icon, ...props }) => {
   );
 }
 
-export { Text, LinkV, Button, Input, BreadCrumb, Snip }; 
+const Accordion = ({ children, title, opened = false, color = 'wh', text = 'btn' }) => {
+	const [open, setOpen] = useState(opened);
+
+	return (
+		<div className={clsx({
+			[`accordion-${color}`]: true,
+			[`accordion-open`]: open
+		})}>
+			<Text text={text} className={`accordion-title ch link-${color}`} onClick={() => setOpen(!open)}>{title}<FaChevronRight /></Text>
+			<div className="accordion-items"><div className="cv gap-2">{children}</div></div>
+		</div>
+	);
+}
+
+const Item = ({ children }) => {
+	return (
+		<div className="accordion-item ch">
+			{children}
+		</div>
+	);
+}
+
+Accordion.Item = Item;
+
+export { Text, LinkV, Button, Input, BreadCrumb, Snip, Accordion }; 

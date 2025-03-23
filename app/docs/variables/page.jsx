@@ -1,10 +1,15 @@
 import React from 'react';
-import { Text } from '@/components/elements';
+import Section from '@/components/docs/section';
+import DocsLayout from '@/components/docs/layout';
 
-export default function Variables() {
+export default function Docs() {
+
+  const pageNavItems = [
+    { href: "#", text: "S" }
+  ];
+
   return (
-    <React.Fragment>
-      <Text text="h1">Variables</Text>
-    </React.Fragment>
+    <DocsLayout navItems={pageNavItems}>
+    </DocsLayout>
   );
 }
