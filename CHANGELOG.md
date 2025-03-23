@@ -1,6 +1,6 @@
 # Changelog
 
-## [0.0.4] - 2024-03-23
+## [0.0.4] - 2025-03-23
 
 ### Added
 - Accordion component with animation
@@ -15,7 +15,7 @@
 - Fixed active navigation item highlighting issue
 - Improved animation performance
 
-## [0.0.3] - 2024-03-21
+## [0.0.3] - 2025-03-21
 
 ### Added
 - Snip component for code display
@@ -30,7 +30,7 @@
 - Fixed dark theme styles
 - Optimized performance
 
-## [0.0.2] - 2024-03-20
+## [0.0.2] - 2025-03-20
 
 ### Added
 - Base components (Button, Link, Text)
@@ -45,7 +45,7 @@
 - Fixed icon display issues
 - Optimized styles for various browsers
 
-## [0.0.1] - 2024-03-19
+## [0.0.1] - 2025-03-19
 
 ### Added
 - Project initialization
